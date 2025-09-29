@@ -980,6 +980,17 @@ footer{
         }
 
       /* ================== TABLET STYLES ================== */
+
+      .watermark {
+    color: #ffffff; /* ensure visible on dark backgrounds */
+    font-size: 0.7rem;
+    text-align: center;
+    padding-top: 5px;
+    z-index: 10;
+    position: relative; /* above liquid shapes */
+}
+
+
 @media (max-width: 768px) {
 
     /* Header */
@@ -1098,6 +1109,18 @@ footer{
     .shadow-dot { animation-duration: 8s !important; }
 }
 
+html, body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+      .watermark {
+        font-size: 0.65rem;
+        padding-top: 3px;
+    }
+
+
 /* ================== PHONE STYLES ================== */
 @media (max-width: 480px) {
 
@@ -1203,3 +1226,13 @@ footer{
     /* Shadows reduced complexity */
     .shadow-dot { animation-duration: 10s !important; }
 }
+html, body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+        .watermark {
+        font-size: 0.6rem;
+        padding-top: 2px;
+    }
