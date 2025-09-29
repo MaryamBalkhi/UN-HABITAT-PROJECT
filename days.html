@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URBAN OCTOBER - AFG</title>
+    <link rel="icon" type="image" href="stuff/UN-Habitat_logo_English.png">
+    <link rel="stylesheet" href="styles/days.css">
+
+      <script type="text/javascript" src="darkmode.js" defer></script>
+
+
+      
+
+    <!--font style-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+
+  <!--sparks at the backgorund-->
+  <script>
+  function createSpark() {
+    const spark = document.createElement('div');
+    spark.classList.add('spark');
+    
+
+    spark.style.left = Math.random() * window.innerWidth + 'px';
+
+
+    const size = Math.random() * 2 + 1; 
+    spark.style.width = size + 'px';
+    spark.style.height = size + 'px';
+    
+
+    const driftX = (Math.random() * 40 - 20) + 'px'; 
+    spark.style.setProperty('--driftX', driftX);
+    
+  
+    spark.style.animationDuration = (Math.random() * 1 + 2) + 's';
+    
+    document.body.appendChild(spark);
+    
+
+    spark.addEventListener('animationend', () => {
+      spark.remove();
+    });
+  }
+
+
+  function sparkLoop() {
+    createSpark();
+    const next = Math.random() * 500 + 300; 
+    setTimeout(sparkLoop, next);
+  }
+
+  sparkLoop();
+</script>
+
+<!--header-->
+    
+
+    <header>
+        <div class="logos">
+        <a href="https://unhabitat.org/afghanistan"><img src="stuff/logos/UN-Habitat_logo_English_White.png" alt="UN-habitat-logo" style="width: 50px;"></a>
+        <a href="https://urbanoctober.unhabitat.org/"><img src="stuff/logos/habitat-day-event-logo.png" alt="habitiat-day-event-logo" style="width: 65px;"></a>
+        </div>
+
+        <nav>
+            <ul>
+                <a href="https://unhabitat.org/afghanistan"><li>ABOUT US</li></a>
+                <a href="https://urbanoctober.unhabitat.org/"><li>URBAN OCTOBER</li></a>
+            </ul>
+        </nav>
+       
+<button class="dark-mode-btn" id="theme-switch">
+      <img class="svg-darkmode" src="stuff/icons/sun-icon.png">
+      <img class="svg-darkmode" src="stuff/icons/moon-icon.png">
+    </button>
+
+        <div class="liquid-shape shape1"></div>
+        <div class="liquid-shape shape2"></div>
+        <div class="liquid-shape shape3"></div>
+        <div class="liquid-shape shape4"></div>
+        <div class="liquid-shape shape5"></div>
+
+    </header>
+
+
+ <section class="text">
+    <!--Urban October text animation-->
+    <div class="text-blurb-button" style="display: flex; flex-direction: column; align-items: center; z-index:2;">
+    <svg viewBox="0 0 1000 300">
+    <!-- text mask -->
+    <defs>
+      <clipPath id="text-clip">
+        <text x="50%" y="50%" text-anchor="middle" dy=".35em"
+              font-size="68" font-weight="900"
+              font-family="Roboto, sans-serif" fill="white">
+          MESSAGES OF OCTOBER
+        </text>
+      </clipPath>
+    </defs>
+
+    <!-- blobs clipped inside text -->
+    <g clip-path="url(#text-clip)">
+      <circle class="blobtext blobtext1" cx="250" cy="150" r="180"></circle>
+      <circle class="blobtext blobtext2" cx="500" cy="120" r="140"></circle>
+      <circle class="blobtext blobtext3" cx="750" cy="180" r="200"></circle>
+      <circle class="blobtext blobtext4" cx="400" cy="220" r="160"></circle>
+    </g>
+  </svg>
+</section>
+
+
+<section class="the-days">
+<section class="the-days" id="all-days-container">
+
+</section>
+
+
+</section>
+
+<script>
+  async function renderAllDays() {
+  try {
+    const response = await fetch("cardContents.json");
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+    const data = await response.json();
+    const container = document.getElementById("all-days-container");
+
+    for (let i = 1; i <= 31; i++) {
+      const dayData = data[i];
+      if (!dayData) continue; 
+
+      
+      const card = document.createElement("div");
+      card.classList.add("box-of-day");
+
+      card.innerHTML = `
+        <h2 class="day-title">${dayData.title}</h2>
+        <div class="day-content">
+          <div class="day-placeholder">
+            <div class="text-and-image">
+              <div class="card-text-and-button">
+                <p class="day-text">${dayData.text}</p>
+                <button class="day-button action-btn" style="display: ${dayData.button.showButton ? 'inline-block' : 'none'};">
+                  ${dayData.button.label || 'Learn More'}
+                </button>
+              </div>
+              <div class="the-day-image-with-caption">
+                <img class="little-day-image" src="${dayData.img}" alt="${dayData["title-todays-card-topic"] || dayData.title}"/>
+                <p class="day-caption">${dayData.caption}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+
+    
+      const btn = card.querySelector(".day-button");
+      if (dayData.button.showButton && dayData.button.link) {
+        btn.addEventListener("click", () => window.open(dayData.button.link, "_blank"));
+      }
+
+      container.appendChild(card);
+    }
+  } catch (error) {
+    console.error("Error loading JSON:", error);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", renderAllDays);
+
+</script>
+
+<script>
+async function renderDay(dayNumber) {
+  try {
+    const response = await fetch("cardContents.json");
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+    const data = await response.json();
+    console.log("Loaded JSON:", data);
+
+    const dayData = data[dayNumber];
+    if (!dayData) {
+      console.warn(`No data found for day ${dayNumber}`);
+      return;
+    }
+
+   
+    document.getElementById("day-title").textContent = dayData.title;
+    document.getElementById("day-text").textContent = dayData.text;
+
+    const dayImg = document.getElementById("day-img");
+    dayImg.src = dayData.img; 
+    dayImg.alt = dayData["title-todays-card-topic"] || dayData.title;
+
+    document.getElementById("day-caption").textContent = dayData.caption;
+
+  
+    const button = document.getElementById("day-button");
+    if (dayData.button.showButton) {
+      button.style.display = "inline-block";
+      button.textContent = dayData.button.label;
+      button.onclick = () => window.open(dayData.button.link, "_blank");
+    } else {
+      button.style.display = "none";
+    }
+
+  } catch (error) {
+    console.error("Error loading JSON:", error);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderDay("1");
+});
+</script>
+
+
+<!-- media section --> 
+<section class="media-section">
+<div class="media">
+  <div class="container-the-line">
+    <div class="top-rectangle"></div>
+    <div class="line-container"></div>
+  </div>
+        <h3>Get Involved</h3>
+        <div class="icons">
+<a href="https://www.facebook.com/unhabitataf/" target="_blank">
+  <img alt="Facebook logo" src="stuff/icons/facebook-icon.png">
+</a>
+<a href="https://www.instagram.com/unhabitatafg/" target="_blank">
+  <img alt="Instagram logo" src="stuff/icons/instagram-icon.png">
+</a>
+<a href="https://x.com/UNHabitatAf" target="_blank">
+  <img alt="X (formerly Twitter) logo" src="stuff/icons/X-icon.png">
+</a>
+<a href="https://www.youtube.com/@unhabitataf" target="_blank">
+  <img alt="YouTube logo" src="stuff/icons/youtube-icon.png">
+</a>
+<a href="https://www.linkedin.com/company/unhabitataf/" target="_blank">
+  <img alt="LinkedIn logo" src="stuff/icons/linkedin-icon.png">
+</a>
+<a href="mailto:info.unhafg@un.org">
+  <img alt="Email icon" src="stuff/icons/email-icon.png">
+</a>
+        </div>
+    </div>
+</section>
+
+
+<!-- footer --> 
+<footer>
+    <div class="footer-logos">
+              <a href="https://unhabitat.org/afghanistan"><img src="stuff/logos/UN-Habitat_logo_English_White.png"></a>
+        <a href="https://urbanoctober.unhabitat.org/"><img style="width: 110px;" src="stuff/logos/habitat-day-event-logo.png"></a>
+        
+    </div>
+    <lu>
+        <a href=" https://unhabitat.org/afghanistan"><li>AFGHANISTAN PAGE</li></a>
+        <a href="https://urbanoctober.unhabitat.org/
+"><li>URBAN OCTOBER</li></a>
+        <a href="https://myurbanvision.netlify.app/"><li>MY URBAN VISION</li></a>
+    </lu>
+    <p class="watermark">Managed by UN-Habitat Afghanistan &copy; 2025 | Developed by: <a href="https://www.linkedin.com/in/maryam-hanif-balkhi/" target="_blank" style="color: white;">Maryam Hanif Balkhi</a> </p>
+
+        <div class="liquid-shape shape1"></div>
+        <div class="liquid-shape shape2"></div>
+        <div class="liquid-shape shape3"></div>
+        <div class="liquid-shape shape4"></div>
+        <div class="liquid-shape shape5"></div>
+
+</footer>
+
+</body>
+</html>

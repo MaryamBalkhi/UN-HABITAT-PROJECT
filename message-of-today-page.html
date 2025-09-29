@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URBAN OCTOBER - AFG</title>
+    <link rel="icon" type="image" href="stuff/UN-Habitat_logo_English.png">
+    <link rel="stylesheet" href="styles/message-of-today-page.css">
+    <!--font style-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+
+      <script type="text/javascript" src="darkmode.js" defer></script>
+
+
+</head>
+<body>
+
+    <!--header-->
+
+     <header>
+        <div class="logos">
+        <a href="https://unhabitat.org/afghanistan"><img src="stuff/logos/UN-Habitat_logo_English_White.png" alt="UN-habitat-logo" style="width: 50px;"></a>
+        <a href="https://urbanoctober.unhabitat.org/"><img src="stuff/logos/habitat-day-event-logo.png" alt="habitiat-day-event-logo" style="width: 65px;"></a>
+        </div>
+
+        <nav>
+            <ul>
+                <a href="https://unhabitat.org/afghanistan"><li>ABOUT US</li></a>
+                <a href="https://urbanoctober.unhabitat.org/"><li>URBAN OCTOBER</li></a>
+            </ul>
+        </nav>
+       
+<button class="dark-mode-btn" id="theme-switch">
+      <img class="svg-darkmode" src="stuff/icons/sun-icon.png">
+      <img class="svg-darkmode" src="stuff/icons/moon-icon.png">
+    </button>
+
+        <div class="liquid-shape shape1"></div>
+        <div class="liquid-shape shape2"></div>
+        <div class="liquid-shape shape3"></div>
+        <div class="liquid-shape shape4"></div>
+        <div class="liquid-shape shape5"></div>
+
+    </header>
+
+
+    <!--the two shadow at the edges and the text animation-->
+<div class="the-shadows">
+  <!-- LEFT SHADOWS -->
+  <div class="rectangle-left">
+    <div class="shadow-dot"></div>
+    <div class="shadow-dot"></div>
+    <div class="shadow-dot"></div>
+    <div class="shadow-dot"></div>
+    <div class="shadow-dot"></div>
+    <div class="shadow-dot"></div>
+    <div class="shadow-dot"></div>
+  </div>
+    <!--Urban October text animation-->
+    <div class="text-blurb-button" style="display: flex; flex-direction: column; align-items: center; z-index:2;">
+    <svg viewBox="0 0 1000 300">
+    <!-- text mask -->
+    <defs>
+      <clipPath id="text-clip">
+        <text x="50%" y="50%" text-anchor="middle" dy=".35em"
+              font-size="68" font-weight="900"
+              font-family="Roboto, sans-serif" fill="white">
+          URBAN OCTOBER
+        </text>
+      </clipPath>
+    </defs>
+
+    <!-- blobs clipped inside text -->
+    <g clip-path="url(#text-clip)">
+      <circle class="blobtext blobtext1" cx="250" cy="150" r="180"></circle>
+      <circle class="blobtext blobtext2" cx="500" cy="120" r="140"></circle>
+      <circle class="blobtext blobtext3" cx="750" cy="180" r="200"></circle>
+      <circle class="blobtext blobtext4" cx="400" cy="220" r="160"></circle>
+    </g>
+  </svg>
+
+      <!--the blurb with the button-->
+ <p class="web-blurb">Each year, the United Nations invites the world and the wider public to celebrate <strong style="color: #00b2e3;">Urban October</strong>, a month of reflection, dialogue, and actions on sustainable urban development.
+</p>
+<div class="the-button-link">
+  <button id="motd-button" class="motd">TODAY'S MESSAGE</button>
+</div>
+
+<div class="back-button">
+<a href="index.html"><button class="back-btn">Back</button></a>
+</div>
+
+
+    </div>
+ <!-- RIGHT SHADOWS -->
+  <div class="rectangle-right">
+    <div class="shadow-dot"></div>
+    <div class="shadow-dot"></div>
+    <div class="shadow-dot"></div>
+    <div class="shadow-dot"></div>
+    <div class="shadow-dot"></div>
+    <div class="shadow-dot"></div>
+    <div class="shadow-dot"></div>
+  </div>
+</div>
+
+
+
+    <div id="overlay" class="overlay"></div> 
+
+<div class="card" id="card">
+    <div class="card-header">
+        <button class="close-btn" aria-label="Close card"></button>
+        <div class="titles-for-card">
+          <h2 class="card-title" id="card-title">Card date</h2>
+          <p class="card-topic" id="card-topic">Card topic</p>
+        </div>
+        <button class="close-btn" id="close-btn">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+     <div class="card-content">
+            <div class="card-placeholder">
+                <i class="fas fa-image"></i>
+               <div class="text-and-image">
+                <div class="card-text-and-button" style="display: flex; flex-direction: column; gap: 20px;">
+                    <p class="card-text" id="card-text" style="width: 400px;">content will appear here</p>
+                   <button id="card-button" class="action-btn" style="display: none;">Learn More</button>
+                </div>
+                <div class="the-card-image-with-caption" style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
+                <img class="little-card-image" id="card-img" src="" alt="Card Image"/>
+                 <p id="card-caption" class="caption"></p>
+                </div>
+               </div>
+            </div>
+     </div>
+     <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <div class="blob blob3"></div>
+</div>
+
+
+
+
+
+<!--the codes for the card-->
+<script>
+let cardContents = {};
+
+// Load data from JSON file
+fetch("cardContents.json")
+  .then(res => res.json())
+  .then(data => {
+    cardContents = data;
+  })
+  .catch(err => console.error("Error loading cardContents.json:", err));
+
+const card = document.getElementById("card");
+const overlay = document.getElementById("overlay");
+const cardTitle = document.getElementById("card-title");
+const cardTopic = document.getElementById("card-topic");
+const cardText = document.getElementById("card-text");
+const cardButton = document.getElementById("card-button");
+const cardCaption = document.getElementById("card-caption");
+const cardImg = document.getElementById("card-img");
+const closeBtn = document.getElementById("close-btn");
+
+
+function showCardByNumber(dayNumber) {
+  const content = cardContents[dayNumber];
+  if (!content) return;
+
+
+  cardTitle.textContent = content["title-todays-card"] || "";
+  cardTopic.textContent = content["title-todays-card-topic"] || "";
+
+  cardText.textContent = content.text || "";
+  cardImg.src = content.img || "";
+  cardCaption.textContent = content.caption || "";
+
+  if (content.button && content.button.showButton) {
+    cardButton.style.display = "inline-block";
+    cardButton.textContent = content.button.label || "Learn More";
+    cardButton.onclick = () => window.open(content.button.link, "_blank");
+  } else {
+    cardButton.style.display = "none";
+    cardButton.onclick = null;
+  }
+
+  card.style.display = "block";
+  card.classList.add("active");
+  overlay.classList.add("active");
+}
+
+
+closeBtn.addEventListener("click", () => {
+  card.style.display = "none";
+  card.classList.remove("active");
+  overlay.classList.remove("active");
+});
+overlay.addEventListener("click", () => {
+  card.style.display = "none";
+  card.classList.remove("active");
+  overlay.classList.remove("active");
+});
+
+
+document.getElementById("motd-button").addEventListener("click", () => {
+  const today = new Date();
+  const day = today.getDate(); 
+  showCardByNumber(day);
+});
+
+</script>
+
+
+
+
+
+
+
+    <!-- media section --> 
+<section class="media-section">
+<div class="media">
+<div class="container-the-line">
+    <div class="top-rectangle"></div>
+    <div class="line-container"></div>
+  </div>
+        <h3>Get Involved</h3>
+        <div class="icons">
+<a href="https://www.facebook.com/unhabitataf/" target="_blank">
+  <img alt="Facebook logo" src="stuff/icons/facebook-icon.png">
+</a>
+<a href="https://www.instagram.com/unhabitatafg/" target="_blank">
+  <img alt="Instagram logo" src="stuff/icons/instagram-icon.png">
+</a>
+<a href="https://x.com/UNHabitatAf" target="_blank">
+  <img alt="X (formerly Twitter) logo" src="stuff/icons/X-icon.png">
+</a>
+<a href="https://www.youtube.com/@unhabitataf" target="_blank">
+  <img alt="YouTube logo" src="stuff/icons/youtube-icon.png">
+</a>
+<a href="https://www.linkedin.com/company/unhabitataf/" target="_blank">
+  <img alt="LinkedIn logo" src="stuff/icons/linkedin-icon.png">
+</a>
+<a href="mailto:info.unhafg@un.org">
+  <img alt="Email icon" src="stuff/icons/email-icon.png">
+</a>
+        </div>
+    </div>
+</section>
+
+
+<!-- footer --> 
+<footer>
+    <div class="footer-logos">
+      <a href="https://unhabitat.org/afghanistan"><img src="stuff/logos/UN-Habitat_logo_English_White.png"></a>
+        <a href="https://urbanoctober.unhabitat.org/"><img style="width: 110px;" src="stuff/logos/habitat-day-event-logo.png"></a>
+    </div>
+    <lu>
+        <a href=" https://unhabitat.org/afghanistan"><li>AFGHANISTAN PAGE</li></a>
+        <a href="https://urbanoctober.unhabitat.org/
+"><li>URBAN OCTOBER</li></a>
+        <a href="https://myurbanvision.netlify.app/"><li>MY URBAN VISION</li></a>
+    </lu>
+    <p class="watermark">Managed by UN-Habitat Afghanistan &copy; 2025 | Developed by: <a href="https://www.linkedin.com/in/maryam-hanif-balkhi/" target="_blank" style="color: white;">Maryam Hanif Balkhi</a> </p>
+
+        <div class="liquid-shape shape1"></div>
+        <div class="liquid-shape shape2"></div>
+        <div class="liquid-shape shape3"></div>
+        <div class="liquid-shape shape4"></div>
+        <div class="liquid-shape shape5"></div>
+
+</footer>
+
+
+</body>
+</html>

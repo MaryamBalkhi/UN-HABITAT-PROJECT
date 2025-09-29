@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URBAN OCTOBER - AFG</title>
+    <link rel="icon" type="image" href="stuff/UN-Habitat_logo_English.png">
+    <link rel="stylesheet" href="styles/index.css">
+
+
+      <script type="text/javascript" src="darkmode.js" defer></script>
+
+
+      
+
+    <!--font style-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+
+
+
+</head>
+<body>
+  
+   <!--sparks at the backgorund-->
+  <script>
+  function createSpark() {
+    const spark = document.createElement('div');
+    spark.classList.add('spark');
+    
+
+    spark.style.left = Math.random() * window.innerWidth + 'px';
+
+
+    const size = Math.random() * 2 + 1;
+    spark.style.width = size + 'px';
+    spark.style.height = size + 'px';
+    
+
+    const driftX = (Math.random() * 40 - 20) + 'px'; 
+    spark.style.setProperty('--driftX', driftX);
+    
+
+    spark.style.animationDuration = (Math.random() * 1 + 2) + 's';
+    
+    document.body.appendChild(spark);
+    
+
+    spark.addEventListener('animationend', () => {
+      spark.remove();
+    });
+  }
+
+
+  function sparkLoop() {
+    createSpark();
+    const next = Math.random() * 500 + 300;
+    setTimeout(sparkLoop, next);
+  }
+
+  sparkLoop();
+</script>
+
+
+<!--header-->
+
+    <header>
+        <div class="logos">
+        <a href="https://unhabitat.org/afghanistan"><img src="stuff/logos/UN-Habitat_logo_English_White.png" alt="UN-habitat-logo" style="width: 50px;"></a>
+        <a href="https://urbanoctober.unhabitat.org/"><img src="stuff/logos/habitat-day-event-logo.png" alt="habitiat-day-event-logo" style="width: 65px;"></a>
+        </div>
+
+        <nav>
+            <ul>
+                <a href="https://unhabitat.org/afghanistan"><li>ABOUT US</li></a>
+                <a href="https://urbanoctober.unhabitat.org/"><li>URBAN OCTOBER</li></a>
+            </ul>
+        </nav>
+       
+<button class="dark-mode-btn" id="theme-switch">
+      <img class="svg-darkmode" src="stuff/icons/sun-icon.png">
+      <img class="svg-darkmode" src="stuff/icons/moon-icon.png">
+    </button>
+
+        <div class="liquid-shape shape1"></div>
+        <div class="liquid-shape shape2"></div>
+        <div class="liquid-shape shape3"></div>
+        <div class="liquid-shape shape4"></div>
+        <div class="liquid-shape shape5"></div>
+
+    </header>
+
+
+ <section class="text">
+    <div class="container">
+        <h2>URBAN OCTOBER</h2>
+        <h2 class="glow">URBAN OCTOBER</h2>
+    </div>
+    <p class="web-blurb">Each year, the United Nations invites the world and the wider public to celebrate <strong style="color: #00b2e3;">Urban October</strong>, a month of reflection, dialogue, and actions on sustainable urban development.<br>
+        <br>
+Urban October begins with <strong style="color: #00b2e3;">World Habitat Day</strong>, observed this year on 6 October 2025, highlighting the state of cities and communities and the fundamental right to adequate shelter and housing.<br>
+<br>
+Urban October concludes with <strong style="color: #00b2e3;">World Cities Day</strong> on 31 October, celebrating progress and partnerships to build more inclusive, resilient, and sustainable urban futures.<br>
+<br>
+This website highlights Afghanistan’s urban challenges and the actions needed to address them. Hover over each photo and click to explore the messages.
+</p>
+</section>
+<script type="text/javascript">
+    var pos = document.querySelector('.container');
+    if (pos) { 
+        pos.addEventListener('mouseenter', e => {
+            pos.style.setProperty('--x', e.offsetX + 'px');
+            pos.style.setProperty('--y', e.offsetY + 'px');
+        });
+        pos.addEventListener('mousemove', e => {
+            pos.style.setProperty('--x', e.offsetX + 'px');
+            pos.style.setProperty('--y', e.offsetY + 'px');
+        });
+        pos.addEventListener('mouseleave', e => {
+            pos.style.setProperty('--x', '-9999px');
+            pos.style.setProperty('--y', '-9999px');
+        });
+    }
+</script>
+
+
+  <!--the pics with card-->
+      <div class="gallery-container">
+    <div class="fade-left"></div>
+    <div class="fade-right"></div>
+    <div class="gallery" id="gallery">
+
+        <div class="gallery-item" data-card="1"><img src="H-Day1-Afghan-Returnees-test.jpg" alt="image-Day-1-Afghan-Returnees" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div class="gallery-item" data-card="2"><img src="stuff/horizental-pics/H-Day-2-Water-in-Cities.jpg" alt="image-Day-2-Water-in-Cities" style="width:100%; height:100%; object-fit:cover"></div>
+        <div class="gallery-item"  data-card="3"><img src="stuff/horizental-pics/H-Day3-Urban-Transportation.jpg" alt="image-3-" style="width:100%; height:100%; object-fit:cover"></div>
+        <div class="gallery-item"  data-card="4" ><img src="stuff/horizental-pics/H-Day-4-Accessibility-for-All.jpg" alt="image-Day-4-Accessibility-for-All" style="width:100%; height:100%; object-fit:cover"></div>
+        <div class="gallery-item"  data-card="5"><img src="stuff/horizental-pics/H-Day-4-Access-to-Healthcare.jpg" alt="image-5-" style="width:100%; height:100%; object-fit:cover"></div>
+        <div class="gallery-item"  data-card="6"><img src="stuff/horizental-pics/H-Day-6-Community-Infrastructure.jpg" alt="image-Day-6-Community-Infrastructure" style="width:100%; height:100%; object-fit:cover"></div>
+        <div class="gallery-item"  data-card="7"><img src="stuff/horizental-pics/H-Day-7-Adequate-Housing.jpg" alt="image-Day-7-Adequate-Housing" style="width:100%; height:100%; object-fit:cover"></div>
+        <div class="gallery-item"  data-card="8"><img src="stuff/horizental-pics/H-Day-8-Informal-Settlements.jpg" alt="image-Day-8-Informal-Settlements" style="width:100%; height:100%; object-fit:cover"></div>
+        <div class="gallery-item"  data-card="9"><img src="stuff/horizental-pics/H-Day-9-Rapid-Urbanization.jpg" alt="image-9-" style="width:100%; height:100%; object-fit:cover"></div>
+        <div class="gallery-item"  data-card="10"><img src="stuff/horizental-pics/H-Day-10-Informal-Settlements.jpg" alt="image-Day-10-Informal-Settlements" style="width:100%; height:100%; object-fit:cover"></div>
+        <div class="gallery-item"  data-card="11"><img src="stuff/horizental-pics/H-Day-11-Durable-Solutions.jpg" alt="image-Day-11-Durable-Solutions" style="width:100%; height:100%; object-fit:cover"></div>
+        <div class="gallery-item"  data-card="12"><img src="stuff/horizental-pics/H-Day-12-Disasters-Risk-Reduction.jpg" alt="image-Day-12-Disasters-Risk-Reduction" style="width:100%; height:100%; object-fit:cover"></div>
+        <div class="gallery-item"  data-card="13"><img src="stuff/horizental-pics/H-Day-13-Urban-Livelihoods.jpg" alt="image-Day-13-Urban-Livelihoods" style="width:100%; height:100%; object-fit:cover"></div>
+        <div class="gallery-item"  data-card="14"><img src="stuff/horizental-pics/H-Day-14-Urban-Data.jpg" alt="image-Day-14-Urban-Data" style="width:100%; height:100%; object-fit:cover"></div>
+        <div class="gallery-item"  data-card="15"><img src="stuff/horizental-pics/H-Day-15-Low-Investments.jpg" alt="image-Day-15-Low-Investments" style="width:100%; height:100%; object-fit:cover"></div>
+        <div class="gallery-item"  data-card="16"><img src="stuff/horizental-pics/H-Day-16-Urban-Expansion.jpg" alt="image-Day-16-Urban-Expansion" style="width:100%; height:100%; object-fit:cover"></div>
+        <div class="gallery-item"  data-card="17"><img src="stuff/horizental-pics/H-Day-17-Basic-Services.jpg" alt="image-Day-17-Basic-Services" style="width:100%; height:100%; object-fit:cover"></div>
+        <div class="gallery-item"  data-card="18"><img src="stuff/horizental-pics/H-Day-18-Urban-Environment.jpg" alt="image-18-" style="width:100%; height:100%; object-fit:cover"></div>
+        <div class="gallery-item"  data-card="19"><img src="stuff/horizental-pics/H-Day-19 Community-Engagement.jpg" alt="image-Day-19-Community-Engagement" style="width:100%; height:100%; object-fit:cover"></div>
+        <div class="gallery-item"  data-card="20"><img src="stuff/horizental-pics/H-Day-20 Womens-Empowerment.jpg" alt="image-Day-20-Womens-Empowerment" style="width:100%; height:100%; object-fit:cover"></div>
+        <div class="gallery-item"  data-card="21"><img src="stuff/horizental-pics/H-Day-21-Waste-Management.jpg" alt="image-Day-21-Waste-Management" style="width:100%; height:100%; object-fit:cover"></div>
+        <div class="gallery-item" data-card="22"><img src="stuff/horizental-pics/H-Day-22-Safe-Public-Space-for-Women-and-Girls.jpg" alt="image-22-Day-22-Safe-Public-Space-for-Women-and-Girls" style="width:100%; height:100%; object-fit:cover"></div>
+        <div class="gallery-item" data-card="23"><img src="stuff/horizental-pics/H-Day-23-Housing-Land-and-Property-(HLP)-Rights.jpg" alt="image-Day-23-Housing-Land-and-Property-(HLP)-Rights" style="width:100%; height:100%; object-fit:cover"></div>
+        <div class="gallery-item" data-card="24"><img src="stuff/horizental-pics/H-Day-20 Womens-Empowerment.jpg" alt="image-24-Inclusive-Urban-Planning" style="width:100%; height:100%; object-fit:cover"></div>
+        <div class="gallery-item" data-card="25"><img src="stuff/horizental-pics/H-Day-25-World-Urban-Forum.jpg" alt="image-" style="width:100%; height:100%; object-fit:contain; background-color: white;"></div>
+        <div class="gallery-item" data-card="26"><img src="stuff/horizental-pics/H-Day-26-Inequality-and-Exclusion.jpg" alt="image-Day 25 World Urban Forum" style="width:100%; height:100%; object-fit:cover"></div>
+        <div class="gallery-item" data-card="27"><img src="stuff/horizental-pics/H-Day-27-Cultural-Heritage-Protection.jpg" alt="image-Day-27-Cultural-Heritage-Protection" style="width:100%; height:100%; object-fit:cover"></div>
+        <div class="gallery-item" data-card="28"><img src="stuff/horizental-pics/H-Day-28-Emergency-Shelter.jpg" alt="image-Day-28-Emergency-Shelter" style="width:100%; height:100%; object-fit:cover"></div>
+        <div class="gallery-item" data-card="29"><img src="stuff/horizental-pics/H-Day-29-Youth-Unemployment.jpg" alt="image-Day-29-Youth-Unemployment" style="width:100%; height:100%; object-fit:cover"></div>
+        <div class="gallery-item" data-card="30"><img src="stuff/horizental-pics/H-Day-30-Air-Pollution.jpg" alt="image-Day-30-Air-Pollution" style="width:100%; height:100%; object-fit:cover"></div>
+        <div class="gallery-item" data-card="31"><img src="stuff/horizental-pics/H-Day-31-Urban-Energy_2.jpg" alt="image-Day-31-Urban-Energy" style="width:100%; height:100%; object-fit:cover"></div>
+    </div>
+</div>
+
+<div class="overlay" id="overlay"></div>
+
+<div class="card" id="card">
+    <div class="card-header">
+        <button class="close-btn" aria-label="Close card"></button>
+        <h2 class="card-title" id="card-title">Image Title</h2>
+        <button class="close-btn" id="close-btn">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+     <div class="card-content">
+            <div class="card-placeholder">
+                <i class="fas fa-image"></i>
+               <div class="text-and-image">
+                <div class="card-text-and-button" style="display: flex; flex-direction: column; gap: 20px;">
+                    <p class="card-text" id="card-text" style="width: 400px;">content will appear here</p>
+                   <button id="card-button" class="action-btn" style="display: none;">Learn More</button>
+                </div>
+                <div class="the-card-image-with-caption" style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
+                <img class="little-card-image" id="card-img" src="" alt="Card Image"/>
+                 <p id="card-caption" class="caption"></p>
+                </div>
+               </div>
+            </div>
+     </div>
+     <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <div class="blob blob3"></div>
+</div>
+
+
+
+
+
+<script>
+    // Auto-scroll functionality
+    const galleryContainer = document.querySelector('.gallery-container');
+    const galleryElement = document.getElementById('gallery');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    
+    let scrollInterval = setInterval(() => {
+        galleryElement.scrollBy({left: 3, behavior: 'auto'});
+        
+
+        if (galleryElement.scrollLeft >= (galleryElement.scrollWidth - galleryElement.clientWidth - 10)) {
+            galleryElement.scrollTo({left: 3, behavior: 'smooth'});
+        }
+        
+        updateCarousel(); 
+    }, 30);
+    
+    
+    function updateCarousel() {
+        const containerRect = galleryContainer.getBoundingClientRect();
+        const center = containerRect.width / 2;
+        
+        galleryItems.forEach(item => {
+            const rect = item.getBoundingClientRect();
+            const itemCenter = rect.left + rect.width / 2 - containerRect.left;
+            const distance = Math.abs(itemCenter - center);
+            const maxDistance = containerRect.width / 2 + rect.width / 2;
+            
+
+            const scale = Math.max(0.7, 1 - (distance / maxDistance) * 0.3);
+            
+            const blur = (distance / maxDistance) * 1.5;
+            
+
+            const angle = ((itemCenter - center) / maxDistance) * 20;
+            
+            item.style.transform = `rotateY(${angle}deg) scale(${scale})`;
+            item.style.filter = `blur(${blur}px)`;
+            item.style.zIndex = Math.round(100 - (distance / 100));
+        });
+    }
+    
+  
+    updateCarousel();
+    
+
+    galleryElement.addEventListener('scroll', updateCarousel);
+    
+
+    galleryItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            clearInterval(scrollInterval);
+        });
+        
+        item.addEventListener('mouseleave', () => {
+
+            if (!document.getElementById('card').classList.contains('active')) {
+                scrollInterval = setInterval(() => {
+                    galleryElement.scrollBy({left: 3, behavior: 'auto'});
+                    
+                    if (galleryElement.scrollLeft >= (galleryElement.scrollWidth - galleryElement.clientWidth - 10)) {
+                        galleryElement.scrollTo({left: 0, behavior: 'smooth'});
+                    }
+                    
+                    updateCarousel();
+                }, 30);
+            }
+        });
+
+
+        
+        
+
+        item.addEventListener('click', () => {
+            const title = item.textContent;
+            
+            document.getElementById('card-title').textContent = title;
+            
+            document.getElementById('overlay').classList.add('active');
+            document.getElementById('card').classList.add('active');
+            
+            clearInterval(scrollInterval);
+        });
+    });
+    
+
+    document.getElementById('close-btn').addEventListener('click', closeCard);
+    document.getElementById('overlay').addEventListener('click', closeCard);
+    
+    function closeCard() {
+        document.getElementById('overlay').classList.remove('active');
+        document.getElementById('card').classList.remove('active');
+        
+
+        scrollInterval = setInterval(() => {
+            galleryElement.scrollBy({left: 3, behavior: 'auto'});
+            
+            if (galleryElement.scrollLeft >= (galleryElement.scrollWidth - galleryElement.clientWidth - 10)) {
+                galleryElement.scrollTo({left: 0, behavior: 'smooth'});
+            }
+            
+            updateCarousel();
+        }, 30);
+    }
+    
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeCard();
+        } else if (e.key === ' ') {
+            clearInterval(scrollInterval);
+        }
+    });
+    
+
+    window.addEventListener('resize', updateCarousel);
+
+    
+
+ // Optimized drag handling
+      gallery.style.cursor = 'grab';
+      
+      const handleDragStart = (e) => {
+        isDragging = true;
+        movedDuringDrag = false;
+        dragStartX = e.clientX || e.touches[0].clientX;
+        dragScrollStart = gallery.scrollLeft;
+        gallery.style.cursor = 'grabbing';
+        stopAutoScroll();
+      };
+
+      const handleDragMove = (e) => {
+        if (!isDragging) return;
+        const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+        if (!clientX) return;
+        
+        const dx = clientX - dragStartX;
+        if (Math.abs(dx) > 5) movedDuringDrag = true;
+        gallery.scrollLeft = dragScrollStart - dx;
+      };
+
+      const handleDragEnd = () => {
+        if (!isDragging) return;
+        isDragging = false;
+        gallery.style.cursor = 'grab';
+        if (!isCardOpen && !isHovering) {
+          setTimeout(startAutoScroll, 200);
+        }
+        setTimeout(() => { movedDuringDrag = false; }, 50);
+      };
+
+      // Mouse events
+      gallery.addEventListener('mousedown', handleDragStart);
+      window.addEventListener('mousemove', handleDragMove);
+      window.addEventListener('mouseup', handleDragEnd);
+
+      // Touch events
+      gallery.addEventListener('touchstart', handleDragStart, { passive: true });
+      gallery.addEventListener('touchmove', handleDragMove, { passive: true });
+      gallery.addEventListener('touchend', handleDragEnd, { passive: true });
+
+      // Pause animations when tab is not visible
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          stopAutoScroll();
+        } else if (!isCardOpen && !isHovering && !isDragging) {
+          startAutoScroll();
+        }
+      });
+</script>
+
+
+
+<!-- the conent of the card-->
+<script>
+
+  let cardContents = {};
+
+// Load data from JSON file
+fetch("cardContents.json")
+  .then(res => res.json())
+  .then(data => {
+    cardContents = data;
+  })
+  .catch(err => console.error("Error loading cardContents.json:", err));
+
+  const triggers = document.querySelectorAll(".gallery-item");
+  const card = document.getElementById("card");
+  const cardTitle = document.getElementById("card-title"); 
+  const cardText = document.getElementById("card-text");
+  const cardButton = document.getElementById("card-button");
+  const cardCaption = document.getElementById("card-caption");
+  const cardImg = document.getElementById("card-img");
+
+
+
+  triggers.forEach(trigger => {
+    trigger.addEventListener("click", () => {
+      const key = trigger.dataset.card;
+      const content = cardContents[key];
+
+      if (!content) return;
+
+      cardTitle.textContent = content.title || "";
+      cardText.textContent = content.text || "";
+      cardImg.src = content.img || "";
+      cardCaption.textContent = content.caption || "";
+
+      if (content.button && content.button.showButton) {
+        cardButton.style.display = "inline-block";
+        cardButton.textContent = content.button.label || "Learn More";
+        cardButton.onclick = () => {
+          window.open(content.button.link, "_blank");
+        };
+      } else {
+        cardButton.style.display = "none";
+        cardButton.onclick = null;
+      }
+
+      card.style.display = "block";
+    });
+  });
+</script>
+
+
+
+
+
+<div class="the-button-link"><a href="message-of-today-page.html"><button class="motd">MESSAGE OF THE DAY</button></a></div> 
+
+
+<!-- media section --> 
+<section class="media-section">
+<div class="media">
+  <div class="container-the-line">
+    <div class="top-rectangle"></div>
+    <div class="line-container"></div>
+  </div>
+        <h3>Get Involved</h3>
+        <div class="icons">
+<a href="https://www.facebook.com/unhabitataf/" target="_blank">
+  <img alt="Facebook logo" src="stuff/icons/facebook-icon.png">
+</a>
+<a href="https://www.instagram.com/unhabitatafg/" target="_blank">
+  <img alt="Instagram logo" src="stuff/icons/instagram-icon.png">
+</a>
+<a href="https://x.com/UNHabitatAf" target="_blank">
+  <img alt="X (formerly Twitter) logo" src="stuff/icons/X-icon.png">
+</a>
+<a href="https://www.youtube.com/@unhabitataf" target="_blank">
+  <img alt="YouTube logo" src="stuff/icons/youtube-icon.png">
+</a>
+<a href="https://www.linkedin.com/company/unhabitataf/" target="_blank">
+  <img alt="LinkedIn logo" src="stuff/icons/linkedin-icon.png">
+</a>
+<a href="mailto:info.unhafg@un.org">
+  <img alt="Email icon" src="stuff/icons/email-icon.png">
+</a>
+        </div>
+    </div>
+</section>
+
+
+<!-- footer --> 
+<footer>
+    <div class="footer-logos">
+              <a href="https://unhabitat.org/afghanistan"><img src="stuff/logos/UN-Habitat_logo_English_White.png"></a>
+        <a href="https://urbanoctober.unhabitat.org/"><img style="width: 110px;" src="stuff/logos/habitat-day-event-logo.png"></a>
+        
+    </div>
+    <lu>
+        <a href=" https://unhabitat.org/afghanistan"><li>AFGHANISTAN PAGE</li></a>
+        <a href="https://urbanoctober.unhabitat.org/
+"><li>URBAN OCTOBER</li></a>
+        <a href="https://myurbanvision.netlify.app/"><li>MY URBAN VISION</li></a>
+    </lu>
+    <p class="watermark">Managed by UN-Habitat Afghanistan &copy; 2025 | Developed by: <a href="https://www.linkedin.com/in/maryam-hanif-balkhi/" target="_blank" style="color: white;">Maryam Hanif Balkhi</a> </p>
+
+        <div class="liquid-shape shape1"></div>
+        <div class="liquid-shape shape2"></div>
+        <div class="liquid-shape shape3"></div>
+        <div class="liquid-shape shape4"></div>
+        <div class="liquid-shape shape5"></div>
+
+</footer>
+
+
+
+</body>
+</html>
