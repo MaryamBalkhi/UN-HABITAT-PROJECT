@@ -1,7 +1,7 @@
 {
   "1": {
     "title": "01: AFGHAN RETURNEES",
-    "title-todays-card": "TODAY'S 1ST OCTOBER", "title-todays-card-topic": "TOPIC: AFGHAN RETURNEES",
+    "title-todays-card": "01 OCTOBER", "title-todays-card-topic": "AFGHAN RETURNEES",
     "text": "Millions of Afghans returned home from neighboring countries, with more expected in the months and years to come. Their reintegration into society is critical. UN-Habitat fosters reintegration and social cohesion through inclusive and area-based approaches in areas of return. Bringing returnees and local communities together for building inclusive, resilient futures.",
       "button": { "showButton": true, "label": "Learn More", "link": "https://youtu.be/S2YpopYrv8o?si=gcK_vHS_UXf7EUJ_" },
      "img": "stuff/horizental-pics/H-Day1-Afghan-Returnees-test.jpg",
@@ -9,7 +9,7 @@
   },
   "2": {
     "title": "02: WATER IN CITIES", 
-    "title-todays-card": "TODAY'S 2ND OCTOBER", "title-todays-card-topic": "TOPIC: WATER IN CITIES",
+    "title-todays-card": "02 OCTOBER", "title-todays-card-topic": "WATER IN CITIES",
     "text": "Water is dignity. Water is health.Water is life. \nIn Afghanistan, many people lack access to safe water and sanitation, especially in informal settlements. We must step up efforts to ensure clean water and sanitation for all.",
       "button": { "showButton": false},
      "img": "stuff/horizental-pics/H-Day-2-Water-in-Cities.jpg",
@@ -18,7 +18,7 @@
   
   "3": {
     "title": "03: URBAN TRANSPORTATION",
-    "title-todays-card": "TODAY'S 3RD OCTOBER", "title-todays-card-topic": "TOPIC: URBAN TRANSPORTATION",
+    "title-todays-card": "03 OCTOBER", "title-todays-card-topic": "URBAN TRANSPORTATION",
     "text": "Efficient public transportation make cities healthier, more inclusive, more livable, and human centered. Yet, Afghan cities continue to operate without efficient transportation methods. UN-Habitat calls on all actors to step up support in transforming Afghanistan cities.",
     "button": { "showButton": true, "label": "Learn More", "link": "https://unhabitat.org/urban-mobility" },
     "img": "stuff/horizental-pics/H-Day3-Urban-Transportation.jpg",
@@ -26,7 +26,7 @@
   },
   "4": {
     "title": "04: ACCESSIBILITY FOR ALL",
-        "title-todays-card": "TODAY'S 4TH OCTOBER", "title-todays-card-topic": "TOPIC: ACCESSIBILITY FOR ALL",
+        "title-todays-card": "04 OCTOBER", "title-todays-card-topic": "ACCESSIBILITY FOR ALL",
     "text": "How we design city streets can change lives: by prioritizing people, pedestrians and cyclists, reducing traffic speeds, adding green spaces, and ensuring accessibility for all, we create safer, healthier, and more inclusive cities.",
     "button": { "showButton": false },
     "img": "stuff/horizental-pics/H-Day-4-Accessibility-for-All.jpg",
@@ -34,7 +34,7 @@
   },
   "5": {
     "title": "05: ACCESS TO HEALTHCARE SERVICES",
-            "title-todays-card": "TODAY'S 5TH OCTOBER", "title-todays-card-topic": "TOPIC: ACCESS TO HEALTHCARE SERVICES",
+            "title-todays-card": "05 OCTOBER", "title-todays-card-topic": "ACCESS TO HEALTHCARE SERVICES",
     "text": "Adequate health facilities with skilled personnel are needed to reduce preventable deaths of mothers and newborns and other patients. Together with partners, UN-Habitat works for upgrading infrastructure to ensure mothers, babies and all other patients can access life-saving services.",
     "button": { "showButton": true, "label": "Learn More", "link": "https://unhabitat.org/news/07-jun-2024/building-back-better-recovering-from-disasters-in-afghanistan" },
     "img": "stuff/horizental-pics/H-Day-4-Access-to-Healthcare.jpg",
@@ -42,7 +42,7 @@
   },
   "6": {
     "title": "06: COMMUNITY INFRASTRUCTURE",
-            "title-todays-card": "TODAY'S 6TH OCTOBER", "title-todays-card-topic": "TOPIC: COMMUNITY INFRASTRUCTURE",
+            "title-todays-card": "06 OCTOBER", "title-todays-card-topic": "COMMUNITY INFRASTRUCTURE",
     "text": "Upgrading community infrastructure is key to strengthening the resilience of Afghan communities. UN-Habitat engages closely with Afghan communities to understand their needs and then enhance infrastructure, improve essential services, and support livelihood for the most vulnerable.",
     "button": { "showButton": true, "label": "Learn More", "link": "https://unhabitat.org/news/10-may-2022/in-afghanistan-un-habitat-continues-to-deliver-in-support-of-the-most-vulnerable" },
     "img": "stuff/horizental-pics/H-Day-6-Community-Infrastructure.jpg",
@@ -50,7 +50,7 @@
   },
   "7": {
     "title": "07: ADEQUATE HOUSING",
-            "title-todays-card": "TODAY'S 7TH OCTOBER", "title-todays-card-topic": "TOPIC: ADEQUATE HOUSING",
+            "title-todays-card": "07 OCTOBER", "title-todays-card-topic": "ADEQUATE HOUSING",
     "text": "Adequate housing is a human right, not a privilege. Everyone deserves a safe place to call home.",
     "button": { "showButton": true, "label": "Learn More", "link": "https://unhabitat.org/news/27-jun-2025/improving-housing-conditions-in-kabuls-informal-settlements" },
     "img": "stuff/horizental-pics/H-Day-7-Adequate-Housing.jpg",
@@ -58,7 +58,7 @@
   },
   "8": {
     "title": "08: INFORMAL SETTLEMENTS",
-            "title-todays-card": "TODAY'S 8TH OCTOBER", "title-todays-card-topic": "TOPIC: INFORMAL SETTLEMENTS",
+            "title-todays-card": "08 OCTOBER", "title-todays-card-topic": "INFORMAL SETTLEMENTS",
     "text": "In Kabul, 4 out of 5 people live in informal settlements. Daily life in informal settlements is especially difficult for women and girls as they struggle with shortages of basic service such as water, and face safety risks. Action to improve living conditions for people in vulnerable situations cannot wait.",
     "button": { "showButton": true, "label": "Learn More", "link": "https://unhabitat.org/afghanistan" },
     "img": "stuff/horizental-pics/H-Day-8-Informal-Settlements.jpg",
@@ -66,7 +66,7 @@
   },
   "9": {
     "title": "09: RAPID URBANIZATION",
-            "title-todays-card": "TODAY'S 9TH OCTOBER", "title-todays-card-topic": "TOPIC: RAPID URBANIZATION",
+            "title-todays-card": "09 OCTOBER", "title-todays-card-topic": "RAPID URBANIZATION",
     "text": "In Afghanistan, 1 in 2 people are expected to live in cities by 2060. Yet, many cities are not ready for this rapid urbanization. By making adequate and safe living environments a priority, we can build cities where everyone has a decent quality of life.",
     "button": { "showButton": false },
     "img": "stuff/horizental-pics/H-Day-9-Rapid-Urbanization.jpg",
@@ -74,7 +74,7 @@
   },
   "10": {
     "title": "10: CLIMATE CHANGE IMPACT",
-            "title-todays-card": "TODAY'S 10TH OCTOBER", "title-todays-card-topic": "TOPIC: CLIMATE CHANGE IMPACT",
+            "title-todays-card": "10 OCTOBER", "title-todays-card-topic": "CLIMATE CHANGE IMPACT",
     "text": "Cities are at the frontline of the climate crisis. In Afghanistan, temperatures keep rising each year. In Kabul, home to over 40% of Afghanistan's urban population, 4 in 5 residents live in informal settlements. These communities are particularly vulnerable to extreme weather events such as heat but also droughts or floods, underscoring the urgent need for urban climate action.",
     "button": { "showButton": true, "label": "Learn More", "link": "https://fukuoka.unhabitat.org/en/information/6719/" },
     "img": "stuff/horizental-pics/H-Day-10-Informal-Settlements.jpg",
@@ -82,7 +82,7 @@
   },
   "11": {
     "title": "11: DURABLE SOLUTIONS",
-            "title-todays-card": "TODAY'S 11TH OCTOBER", "title-todays-card-topic": "TOPIC: DURABLE SOLUTIONS",
+            "title-todays-card": "11 OCTOBER", "title-todays-card-topic": "DURABLE SOLUTIONS",
     "text": "Initial estimates indicate that 80% of Afghan returnees from neighboring countries might settle in cities, adding pressure to an already overstretched public infrastructures. Through targeted investments and comprehensive, inclusive urban planning, we can ensure the integration of returnees while building more resilient cities and human settlements.",
     "button": { "showButton": false },
     "img": "stuff/horizental-pics/H-Day-11-Durable-Solutions.jpg",
@@ -90,7 +90,7 @@
   },
   "12": {
     "title": "12: DISASTERS RISK REDUCTION",
-            "title-todays-card": "TODAY'S 12TH OCTOBER", "title-todays-card-topic": "TOPIC: DISASTERS RISK REDUCTION",
+            "title-todays-card": "12 OCTOBER", "title-todays-card-topic": "DISASTERS RISK REDUCTION",
     "text": "Afghanistan’s vulnerability to natural disasters, such as floods, heavy rain, earthquakes, landslides, and droughts calls for disaster risk reduction strategies and actions. UN-Habitat works towards implementing comprehensive disaster risk reduction initiatives, listening to and collaborating with local communities to strengthen resilience and enhance preparedness measures.",
     "button": { "showButton": true, "label": "Learn More", "link": "https://fukuoka.unhabitat.org/en/information/story/4589/" },
     "img": "stuff/horizental-pics/H-Day-12-Disasters-Risk-Reduction.jpg",
@@ -98,7 +98,7 @@
   },
   "13": {
     "title": "13: URBAN LIVELIHOODS",
-            "title-todays-card": "TODAY'S 13TH OCTOBER", "title-todays-card-topic": "TOPIC: URBAN LIVELIHOODS",
+            "title-todays-card": "13 OCTOBER", "title-todays-card-topic": "URBAN LIVELIHOODS",
     "text": "Urban dwellers need specific skills as urban economies ask for different skillsets and profiles. As more people in Afghanistan move from rural to urban areas, their capacities need to be built so that they can live and work in dignity. Making Afghan cities places of social and economic opportunities.",
     "button": { "showButton": true, "label": "Learn More", "link": "https://fukuoka.unhabitat.org/en/information/story/7097/" },
     "img": "stuff/horizental-pics/H-Day-13-Urban-Livelihoods.jpg",
@@ -106,7 +106,7 @@
   },
   "14": {
     "title": "14: URBAN DATA",
-            "title-todays-card": "TODAY'S 14TH OCTOBER", "title-todays-card-topic": "TOPIC: URBAN DATA",
+            "title-todays-card": "14 OCTOBER", "title-todays-card-topic": "URBAN DATA",
     "text": "Better data leads to better decisions that can change the face of cities. Still, relevant actors lack data on Afghan cities. With proper data, we can better understand challenges, tailor responses, and forecast the future of Afghan cities.",
     "button": { "showButton": true, "label": "Learn More", "link": "https://unhabitat.org/afghanistan" },
     "img": "stuff/horizental-pics/H-Day-14-Urban-Data_2.jpg",
@@ -114,7 +114,7 @@
   },
   "15": {
     "title": "15: LOW INVESTMENTS",
-            "title-todays-card": "TODAY'S 15TH OCTOBER", "title-todays-card-topic": "TOPIC: LOW INVESTMENTS",
+            "title-todays-card": "15 OCTOBER", "title-todays-card-topic": "LOW INVESTMENTS",
     "text": "Cities are the powerhouse of economies and drivers of change. Yet, Afghan cities lack investments. Without proper planning, rapid population growth can cause crises in cities, we must step up resources for investments in cities and strengthen capacities for planning and adequate provision of services, so that cities remain drivers of social and economic development.",
     "button": { "showButton": false },
     "img": "stuff/horizental-pics/H-Day-15-Low-Investments.jpg",
@@ -122,7 +122,7 @@
   },
   "16": {
     "title": "16: URBAN EXPANSION",
-            "title-todays-card": "TODAY'S 16TH OCTOBER", "title-todays-card-topic": "TOPIC: URBAN EXPANSION",
+            "title-todays-card": "16 OCTOBER", "title-todays-card-topic": "URBAN EXPANSION",
     "text": "In 1950, only 5% of the Afghanistan population lived in cities. By 2022, that number reached 25%, and by 2060, it’s expected to rise to 50%. Yet, Afghan cities remain unprepared for such rapid growth. We must act now to ensure urbanization can be a positive driver for change.",
     "button": { "showButton": true, "label": "Learn More", "link": "https://x.com/UNHabitatAf/status/1959835628956197111" },
     "img": "stuff/horizental-pics/H-Day-16-Urban-Expansion.jpg",
@@ -130,7 +130,7 @@
   },
   "17": {
     "title": "17: BASIC SERVICES",
-            "title-todays-card": "TODAY'S 17TH OCTOBER", "title-todays-card-topic": "TOPIC: BASIC SERVICES",
+            "title-todays-card": "17 OCTOBER", "title-todays-card-topic": "BASIC SERVICES",
     "text": "In many Afghan cities, informal settlements remain places where dreams stall and opportunities fade, especially for children deprived of basic services. By investing in these areas, we can improve access to services and create healthier environments where children can thrive.",
     "button": { "showButton": true, "label": "Learn More", "link": "https://fukuoka.unhabitat.org/en/information/8367/" },
     "img": "stuff/horizental-pics/H-Day-17-Basic-Services.jpg",
@@ -138,7 +138,7 @@
   },
   "18": {
     "title": "18: URBAN ENVIRONMENT",
-            "title-todays-card": "TODAY'S 18TH OCTOBER", "title-todays-card-topic": "TOPIC: URBAN ENVIRONMENT",
+            "title-todays-card": "18 OCTOBER", "title-todays-card-topic": "URBAN ENVIRONMENT",
     "text": "Afghanistan is vulnerable to environmental degradation. Poor waste and water management and the lack of green spaces threaten peoples’ health. Through targeted urban planning and community actions, we can protect the environment and improve people’s lives.",
     "button": { "showButton": true, "label": "Learn More", "link": "https://youtu.be/0_5VoL9xNk0?si=dPhfp80CgaGUdmjp" },
     "img": "stuff/horizental-pics/H-Day-18-Urban-Environment.jpg",
@@ -146,7 +146,7 @@
   },
   "19": {
     "title": "19: COMMUNITY ENGAGEMENT",
-            "title-todays-card": "TODAY'S 19TH OCTOBER", "title-todays-card-topic": "TOPIC: COMMUNITY ENGAGEMENT",
+            "title-todays-card": "19 OCTOBER", "title-todays-card-topic": "COMMUNITY ENGAGEMENT",
     "text": "In Afghanistan, UN-Habitat works closely with communities, actively engaging with them to understand their specific needs. This participatory approach allows us to tailor projects that address the needs of people in vulnerable situations.",
     "button": { "showButton": true, "label": "Learn More", "link": "https://fukuoka.unhabitat.org/en/information/6195/" },
     "img": "stuff/horizental-pics/H-Day-19 Community-Engagement.jpg",
@@ -154,7 +154,7 @@
   },
   "20": {
     "title": "20: WOMEN'S EMPOWERMENT",
-            "title-todays-card": "TODAY'S 20TH OCTOBER", "title-todays-card-topic": "TOPIC: WOMEN'S EMPOWERMENT",
+            "title-todays-card": "20 OCTOBER", "title-todays-card-topic": "WOMEN'S EMPOWERMENT",
     "text": "Women are at the heart of our work—everywhere and always. Listening to their voices, we tailor our response to Afghan women’s needs through a participatory process, ensuring no woman is left behind.",
     "button": { "showButton": true, "label": "Learn More", "link": "https://fukuoka.unhabitat.org/en/information/8065/" },
     "img": "stuff/horizental-pics/H-Day-20 Womens-Empowerment.jpg",
@@ -162,7 +162,7 @@
   },
   "21": {
     "title": "21: WASTE MANAGEMENT",
-            "title-todays-card": "TODAY'S 21ST OCTOBER", "title-todays-card-topic": "TOPIC:  WASTE MANAGEMENT",
+            "title-todays-card": "21 OCTOBER", "title-todays-card-topic": "WASTE MANAGEMENT",
     "text": "In Afghanistan, waste management is a critical issue, especially in densely populated urban informal settlements. The cost of inaction impacts people's health. We must step up efforts to ensure healthy cities and communities.",
     "button": { "showButton": true, "label": "Learn More", "link": "https://fukuoka.unhabitat.org/en/information/story/4344/" },
     "img": "stuff/horizental-pics/H-Day-21-Waste-Management.jpg",
@@ -170,7 +170,7 @@
   },
   "22": {
     "title": "22: SAFE PUBLIC SPACE FOR WOMEN AND GIRLS",
-            "title-todays-card": "TODAY'S 22ND OCTOBER", "title-todays-card-topic": "TOPIC: SAFE PUBLIC SPACE FOR WOMEN AND GIRLS",
+            "title-todays-card": "22 OCTOBER", "title-todays-card-topic": "SAFE PUBLIC SPACE FOR WOMEN AND GIRLS",
     "text": "For too long, Afghan women and girls have lacked safe spaces to gather, learn, or shape their communities. UN-Habitat builds public spaces and social centers, giving women and girls a place to connect, gain skills and reclaim their space.",
     "button": { "showButton": true, "label": "Learn More", "link": "https://unhabitat.org/news/26-mar-2025/how-safe-public-spaces-are-empowering-women-in-afghanistan" },
     "img": "stuff/horizental-pics/H-Day-22-Safe-Public-Space-for-Women-and-Girls.jpg",
@@ -178,7 +178,7 @@
   },
   "23": {
     "title": "23: HOUSING, LAND, AND PROPERTY (HLP) RIGHTS",
-            "title-todays-card": "TODAY'S 23RD OCTOBER", "title-todays-card-topic": "TOPIC: HOUSING, LAND, AND PROPERTY (HLP) RIGHTS",
+            "title-todays-card": "23 OCTOBER", "title-todays-card-topic": "HOUSING, LAND, AND PROPERTY (HLP) RIGHTS",
     "text": "Housing, land and property rights are about having a home, free from the fear of forced eviction; making homes a place that offers shelter, safety and the ability to secure livelihood opportunities.",
     "button": { "showButton": true, "label": "Learn More", "link": "https://fukuoka.unhabitat.org/en/information/6477/" },
     "img": "stuff/horizental-pics/H-Day-23-Housing-Land-and-Property-(HLP)-Rights.jpg",
@@ -186,7 +186,7 @@
   },
   "24": {
     "title": "24: INCLUSIVE URBAN",
-            "title-todays-card": "TODAY'S 24TH OCTOBER", "title-todays-card-topic": "TOPIC: INCLUSIVE URBAN",
+            "title-todays-card": "24 OCTOBER", "title-todays-card-topic": "INCLUSIVE URBAN",
     "text": "Without inclusive urban planning, displacement will fuel the expansion of informal settlements. With targeted infrastructure investment, displaced populations can contribute positively to the economy, society and culture of the host cities.",
     "button": { "showButton": false },
     "img": "stuff/horizental-pics/H-Day-20 Womens-Empowerment.jpg",
@@ -194,7 +194,7 @@
   },
   "25": {
     "title": "25: WORLD URBAN FORUM",
-            "title-todays-card": "TODAY'S 25TH OCTOBER", "title-todays-card-topic": "TOPIC: WORLD URBAN FORUM",
+            "title-todays-card": "25 OCTOBER", "title-todays-card-topic": "WORLD URBAN FORUM",
     "text": "The World Urban Forum in Baku (WUF13), under the theme “Housing the word: Safe and resilient cities and communities,” will provide a global platform to connect the challenges with actionable solutions, linking crisis response with sustainable housing strategies and strengthening climate change adaptation.",
     "button": { "showButton": true, "label": "Learn More", "link": "Baku wins bid to host World Urban Forum 2026 | WUF" },
     "img": "stuff/horizental-pics/H-Day-25-World-Urban-Forum.jpg",
@@ -202,7 +202,7 @@
   },
   "26": {
     "title": "26: INEQUALITY AND EXCLUSION",
-            "title-todays-card": "TODAY'S 26TH OCTOBER", "title-todays-card-topic": "TOPIC: INEQUALITY AND EXCLUSION",
+            "title-todays-card": "26 OCTOBER", "title-todays-card-topic": "INEQUALITY AND EXCLUSION",
     "text": "Vulnerable groups, especially, women, girls and boys, internally displaced persons (IDPs) or returnees, people with disabilities, and the elderly, often face exclusion from basic services, job opportunities, and decision-making. UN-Habitat ensures that no one is left behind through gender-sensitive programming and inclusive urban planning.",
     "button": { "showButton": true, "label": "Learn More", "link": "https://unhabitat.org/news/06-mar-2024/breaking-barriers-for-women-in-afghanistan" },
     "img": "stuff/horizental-pics/H-Day-26-Inequality-and-Exclusion.jpg",
@@ -210,7 +210,7 @@
   },
   "27": {
     "title": "27: CULTURAL HERITAGE PROTECTION",
-            "title-todays-card": "TODAY'S 27TH OCTOBER", "title-todays-card-topic": "TOPIC: CULTURAL HERITAGE PROTECTION",
+            "title-todays-card": "27 OCTOBER", "title-todays-card-topic": "CULTURAL HERITAGE PROTECTION",
     "text": "Rapid urban growth and climate change threaten Afghanistan’s rich cultural built heritage. Preserving historic neighborhoods and sites ensures cities keep their identity and pride.",
     "button": { "showButton": false },
     "img": "stuff/horizental-pics/H-Day-27-Cultural-Heritage-Protection.jpg",
@@ -218,7 +218,7 @@
   },
   "28": {
     "title": "28: EMERGENCY SHELTER",
-            "title-todays-card": "TODAY'S 28TH OCTOBER", "title-todays-card-topic": "TOPIC: EMERGENCY SHELTER",
+            "title-todays-card": "28 OCTOBER", "title-todays-card-topic": "EMERGENCY SHELTER",
     "text": "Starting over with nothing—that’s the reality for many Afghan returnees. Shelter is the first step towards dignity and recovery. With partners, UN-Habitat supports Afghan returnees with shelter and basic services but needs far exceed resources. We must do more.",
     "button": { "showButton": true, "label": "Learn More", "link": "https://x.com/UNHabitatAf/status/1921410879817445562" },
     "img": "stuff/horizental-pics/H-Day-28-Emergency-Shelter.jpg",
@@ -226,7 +226,7 @@
   },
   "29": {
     "title": "29: YOUTH UNEMPLOYMENT",
-            "title-todays-card": "TODAY'S 29TH OCTOBER", "title-todays-card-topic": "TOPIC: YOUTH UNEMPLOYMENT",
+            "title-todays-card": "29 OCTOBER", "title-todays-card-topic": "YOUTH UNEMPLOYMENT",
     "text": "With over half the population under 25, cities can either become places of opportunity or frustration. Lack of jobs leaves youth vulnerable. Investing in urban economies and skills is urgent.",
     "button": { "showButton": true, "label": "Learn More", "link": "https://fukuoka.unhabitat.org/en/information/8494/" },
     "img": "stuff/horizental-pics/H-Day-29-Youth-Unemployment.jpg",
@@ -234,7 +234,7 @@
   },
   "30": {
     "title": "30: AIR POLLUTION",
-            "title-todays-card": "TODAY'S 30TH OCTOBER", "title-todays-card-topic": "TOPIC: AIR POLLUTION",
+            "title-todays-card": "30 OCTOBER", "title-todays-card-topic": "AIR POLLUTION",
     "text": "Kabul and other cities face severe air quality crises. Unregulated fumes from cars or industrial production and winter smog from burning coal and plastic endangers health, especially children and the elderly. UN-Habitat promotes clean energy, public transport and green spaces that can save people’s health and lives.",
     "button": { "showButton": true, "label": "Learn More", "link": "https://youtu.be/0_5VoL9xNk0?si=M0jf433zrQQfTu0f" },
     "img": "stuff/horizental-pics/H-Day-30-Air-Pollution.jpg",
@@ -242,7 +242,7 @@
   },
   "31": {
     "title": "31: URBAN ENERGY",
-            "title-todays-card": "TODAY'S 31ST OCTOBER", "title-todays-card-topic": "TOPIC: URBAN ENERGY",
+            "title-todays-card": "31 OCTOBER", "title-todays-card-topic": "URBAN ENERGY",
     "text": "Most Afghan cities are struggling with electricity shortages. Families face daily blackouts, businesses suffer, and children can’t study in the evenings. Investing in renewable energy like solar is key for resilient, sustainable cities.",
     "button": { "showButton": false },
     "img": "stuff/horizental-pics/H-Day-31-Urban-Energy_2.jpg",

@@ -842,6 +842,9 @@ footer{
             }
         }
 
+
+
+        /*phone size*/
       
 
         @media (max-width: 768px) {
@@ -850,7 +853,7 @@ footer{
                 justify-content: center;
             }
             
-            /* Adjust liquid shapes for mobile */
+
             .liquid-shape {
                 filter: blur(5px);
             }
@@ -880,3 +883,106 @@ footer{
         padding-top: 5px;
     }
 
+            
+
+            .liquid-shape {
+                filter: blur(5px);
+            }
+            
+            .shape1, .shape2, .shape3, .shape4, .shape5 {
+                width: 100px;
+                height: 100px;
+            }
+        
+
+            header {
+        min-height: 60px !important;
+        padding: 8px 3% !important; 
+        top: 12px !important;                
+        left: 16px !important;               
+        right: 16px !important;
+        border-radius: 50px;
+    }
+
+
+    .footer-logos{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 20px;
+    }
+
+    .footer-logos img{
+        width: 80px;
+    }
+
+    .watermark{
+        color: rgb(255, 255, 255);
+        font-size: x-small;
+        padding-top: 5px;
+    }
+
+   
+    h1, h3, h4, h5, h6, p, li {
+        font-size: 0.8em !important;
+        line-height: 1.2em !important;
+    }
+
+     h2{
+      font-size: 20px !important;
+     }
+
+    .media h3{
+      font-size: 20px !important;
+    }
+
+
+    .little-day-image {
+        width: 70% !important;   
+        height: auto !important;
+        margin-top: 0;
+        pointer-events: auto;
+    }
+    
+    
+
+    .text h2 {
+        font-size: 35px !important;
+    }
+
+    .action-btn {
+        width: 30% !important;          
+        padding: 10px 10px !important;
+        font-size: 0.8rem !important;
+        margin-bottom: 30px;
+        cursor: pointer;
+    }
+
+
+    .shape1, .shape2, .shape3, .shape4, .shape5 {
+        width: 100px !important;
+        height: 100px !important;
+    }
+
+
+    body {
+        overflow-x: hidden;
+    }
+
+    a, .action-btn, .motd, .gallery-item, .little-card-image {
+        pointer-events: auto;
+        cursor: pointer;
+    }
+
+    footer {
+        padding: 10px 3% !important;
+        min-height: auto !important;
+    }
+
+    .day-text{
+      text-align: start !important;
+    }
+
+    svg{
+      margin-top: 100px;
+    }

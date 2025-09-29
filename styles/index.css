@@ -981,13 +981,14 @@ footer{
 
       
 
+
+        /*phone size*/
+
+
+
         @media (max-width: 768px) {
-           
-            header {
-                justify-content: center;
-            }
             
-            /* Adjust liquid shapes for mobile */
+          
             .liquid-shape {
                 filter: blur(5px);
             }
@@ -998,6 +999,14 @@ footer{
             }
         }
 
+            header {
+        min-height: 60px !important;
+        padding: 8px 3% !important; 
+        top: 12px !important; 
+        left: 16px !important;  
+        right: 16px !important;
+        border-radius: 50px;
+    }
 
 
     .footer-logos{
@@ -1017,4 +1026,119 @@ footer{
         padding-top: 5px;
     }
 
+
+@media (max-width: 768px) {
+
+    .card {
+        width: 100% !important; 
+        max-width: 380px !important; 
+        height: auto !important;   
+        padding: 1.5rem 1rem !important;
+        transform: translate(-50%, -50%) scale(1) !important; 
+        pointer-events: auto;
+        overflow: visible;  
+        box-sizing: border-box;
+    }
+
+    .card-text {
+        font-size: 0.8em !important;
+        line-height: 1.3em !important;
+        padding: 0 1rem !important;  
+        width: 340px !important;
+        word-wrap: break-word;  
+        box-sizing: border-box;
+    }
+
+
+    .little-card-image {
+        width: 60% !important;
+        height: auto !important;
+        margin-top: 0;
+        pointer-events: auto;
+    }
+
+    .action-btn {
+        width: 35% !important;
+        padding: 10px 15px !important;
+        font-size: 0.8rem !important;
+        margin-bottom: 30px;
+        cursor: pointer;
+    }
+
+    .motd {
+        width: 100% !important;
+        padding: 10px 15px !important;
+        font-size: 0.8rem !important;
+        margin-bottom: 30px;
+        cursor: pointer;
+    }
+
+
+    .gallery {
+        gap: 15px;
+        padding: 20px 0;
+        overflow-x: auto;
+        scrollbar-width: none;   
+    }
+
+    .gallery::-webkit-scrollbar {
+        display: none;            
+    }
     
+
+    .gallery-item {
+        width: 200px !important;
+        height: 280px !important;
+        pointer-events: auto;
+    }
+
+    .media-section {
+        flex-direction: column !important;
+        margin-top: 80px;
+        gap: 15px !important;
+    }
+
+    .text-and-image {
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+
+
+    h1, h2, h3, h4, h5, h6, p, li, .web-blurb {
+        font-size: 0.8em !important;
+        line-height: 1.2em !important;
+    }
+
+    .media h3{
+      font-size: 20px !important;
+    }
+    
+    
+
+    .text h2 {
+        font-size: 35px !important;
+    }
+
+    .shape1, .shape2, .shape3, .shape4, .shape5 {
+        width: 100px !important;
+        height: 100px !important;
+    }
+
+
+    body {
+        overflow-x: hidden;
+    }
+
+
+    a, .action-btn, .motd, .gallery-item, .little-card-image {
+        pointer-events: auto;
+        cursor: pointer;
+    }
+
+    footer {
+        padding: 10px 3% !important;
+        min-height: auto !important;
+    }
+}
+
+
