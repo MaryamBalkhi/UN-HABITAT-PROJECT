@@ -844,134 +844,78 @@ footer{
 
 
 
-        /*phone size*/
-      
+/* ================== TABLET STYLES ================== */
+@media (max-width: 768px) {
 
-        @media (max-width: 768px) {
-           
-            header {
-                justify-content: center;
-            }
-            
-
-            .liquid-shape {
-                filter: blur(5px);
-            }
-            
-            .shape1, .shape2, .shape3, .shape4, .shape5 {
-                width: 100px;
-                height: 100px;
-            }
-        }
-
-
-
-    .footer-logos{
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        padding: 20px;
-    }
-
-    .footer-logos img{
-        width: 80px;
-    }
-
-    .watermark{
-        color: rgb(255, 255, 255);
-        font-size: x-small;
-        padding-top: 5px;
-    }
-
-            
-
-            .liquid-shape {
-                filter: blur(5px);
-            }
-            
-            .shape1, .shape2, .shape3, .shape4, .shape5 {
-                width: 100px;
-                height: 100px;
-            }
-        
-
-            header {
+    /* Header */
+    header {
         min-height: 60px !important;
-        padding: 8px 3% !important; 
-        top: 12px !important;                
-        left: 16px !important;               
+        padding: 8px 3% !important;
+        top: 12px !important;
+        left: 16px !important;
         right: 16px !important;
         border-radius: 50px;
+        justify-content: center;
+        font-size: 0.85em !important;
     }
 
-
-    .footer-logos{
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        padding: 20px;
+    /* Shapes / liquid elements */
+    .liquid-shape {
+        filter: blur(5px);
+    }
+    .shape1, .shape2, .shape3, .shape4, .shape5 {
+        width: 100px !important;
+        height: 100px !important;
     }
 
-    .footer-logos img{
-        width: 80px;
-    }
-
-    .watermark{
-        color: rgb(255, 255, 255);
-        font-size: x-small;
-        padding-top: 5px;
-    }
-
-   
-    h1, h3, h4, h5, h6, p, li {
-        font-size: 0.8em !important;
-        line-height: 1.2em !important;
-    }
-
-     h2{
-      font-size: 20px !important;
-     }
-
-    .media h3{
-      font-size: 20px !important;
-    }
-
-
+    /* Card / Day images */
     .little-day-image {
-        width: 70% !important;   
+        width: 70% !important;
         height: auto !important;
         margin-top: 0;
         pointer-events: auto;
     }
-    
-    
 
-    .text h2 {
-        font-size: 35px !important;
-    }
-
+    /* Buttons */
     .action-btn {
-        width: 30% !important;          
+        width: 30% !important;
         padding: 10px 10px !important;
         font-size: 0.8rem !important;
         margin-bottom: 30px;
         cursor: pointer;
     }
 
-
-    .shape1, .shape2, .shape3, .shape4, .shape5 {
-        width: 100px !important;
-        height: 100px !important;
+    /* Media / Flex adjustments */
+    .text-and-image, .media-section {
+        flex-direction: column !important;
+        align-items: center;
+        gap: 15px !important;
     }
 
+    /* Fonts */
+    h1, h2, h3, h4, h5, h6, p, li {
+        font-size: 0.8em !important;
+        line-height: 1.2em !important;
+    }
+    h2 { font-size: 20px !important; }
+    .text h2 { font-size: 35px !important; }
+    .media h3 { font-size: 20px !important; }
 
-    body {
-        overflow-x: hidden;
+   svg{
+      margin-top: 120px !important;
     }
 
-    a, .action-btn, .motd, .gallery-item, .little-card-image {
-        pointer-events: auto;
-        cursor: pointer;
+    svg text{
+      font-size: 70px;
+    }
+
+    
+    /* General page fixes */
+    html, body {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow-x: hidden !important;
     }
 
     footer {
@@ -979,10 +923,74 @@ footer{
         min-height: auto !important;
     }
 
-    .day-text{
-      text-align: start !important;
+    /* Footer logos */
+    .footer-logos img { width: 80px; }
+    .web-blurb { padding: 5px; }
+}
+
+/* ================== PHONE STYLES ================== */
+@media (max-width: 480px) {
+
+    /* Header */
+    header {
+        min-height: 50px !important;
+        padding: 5px 2% !important;
+        top: 8px !important;
+        left: 8px !important;
+        right: 8px !important;
+        border-radius: 30px;
+        justify-content: center;
+        font-size: 0.75em !important;
     }
 
-    svg{
-      margin-top: 100px;
+    /* Shapes / liquid elements smaller */
+    .liquid-shape {
+        filter: blur(4px);
     }
+    .shape1, .shape2, .shape3, .shape4, .shape5 {
+        width: 80px !important;
+        height: 80px !important;
+    }
+
+    /* Card / Day images */
+    .little-day-image {
+        width: 60% !important;
+        height: auto !important;
+        margin-top: 0;
+    }
+
+    /* Buttons smaller */
+    .action-btn {
+        width: 40% !important;
+        padding: 8px 12px !important;
+        font-size: 0.7rem !important;
+    }
+
+    /* Media section stacking */
+    .text-and-image, .media-section {
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+
+    /* Fonts */
+    h1, h2, h3, h4, h5, h6, p, li, .web-blurb {
+        font-size: 0.7em !important;
+        line-height: 1.1em !important;
+    }
+    h2 { font-size: 18px !important; }
+    .text h2 { font-size: 28px !important; }
+    .media h3 { font-size: 18px !important; }
+
+
+    
+    svg{
+      margin-top: 100px !important;
+    }
+
+    svg text{
+      font-size: 60px;
+    }
+
+    /* Footer logos smaller */
+    .footer-logos img { width: 60px; }
+}
