@@ -1128,17 +1128,17 @@ footer{
         
 
 
-        /* ================== TABLET STYLES (≤768px) ================== */
+        /* ================== TABLET ================== */
 @media (max-width: 768px) {
 
-    /* Prevent horizontal overflow while keeping shadows */
+  
     body {
         overflow-x: hidden !important;
         padding: 0;
         margin: 0;
     }
 
-    /* Header */
+    
     header {
         min-height: 60px !important;
         padding: 8px 3% !important;
@@ -1150,24 +1150,24 @@ footer{
         font-size: 0.85em !important;
     }
 
-    /* Footer */
+
     footer {
         padding: 10px 3% !important;
         min-height: auto !important;
     }
 
-    /* Logos */
+   
     .logos, .footer-logos {
         display: flex !important;
         justify-content: center !important;
         gap: 15px !important;
     }
     .logos img, .footer-logos img {
-        width: 60-80px !important; /* adjust for design */
+        width: 60-80px !important; 
         height: auto !important;
     }
 
-    /* Shapes / liquid elements */
+   
     .liquid-shape {
         filter: blur(5px);
     }
@@ -1176,7 +1176,7 @@ footer{
         height: 100px !important;
     }
 
-    /* Cards */
+   
     .card {
         width: 95% !important;
         max-width: 380px !important;
@@ -1215,7 +1215,7 @@ footer{
         pointer-events: auto;
     }
 
-    /* Buttons */
+    
     .action-btn, .motd {
         font-size: 0.8rem !important;
         padding: 10px 15px !important;
@@ -1223,7 +1223,6 @@ footer{
         margin: 15px auto !important;
     }
 
-    /* SVG / Blob text */
     svg {
         width: 90vw !important;
         max-width: 800px !important;
@@ -1237,14 +1236,14 @@ footer{
         text-align: center;
     }
 
-    /* Media / Flex adjustments */
+ 
     .media-section, .text-and-image {
         flex-direction: column !important;
         gap: 15px !important;
         align-items: center;
     }
 
-    /* Fonts */
+   
     h1, h2, h3, h4, h5, h6, p, li {
         font-size: 0.8em !important;
         line-height: 1.2em !important;
@@ -1252,7 +1251,7 @@ footer{
     .media h3 { font-size: 20px !important; }
     .text h2 { font-size: 35px !important; }
 
-    /* Gallery */
+ 
     .gallery {
         gap: 15px;
         padding: 20px 0;
@@ -1262,7 +1261,7 @@ footer{
     .gallery::-webkit-scrollbar { display: none; }
     .gallery-item { width: 200px !important; height: 280px !important; }
 
-    /* Shadows */
+
     .shadow-dot { animation-duration: 8s !important; }
 
 }
@@ -1274,7 +1273,7 @@ html, body {
     }
 
      .logos img {
-        width: 50px !important; /* smaller for tablets */
+        width: 50px !important; 
         height: auto !important;
         align-items: center;
     }
@@ -1290,17 +1289,16 @@ html, body {
 
 
 
-/* ================== PHONE STYLES (≤480px) ================== */
+/* ================== PHONE  ================== */
 @media (max-width: 480px) {
 
-    /* Prevent horizontal overflow while keeping shadows */
+
     body {
         overflow-x: hidden !important;
         padding: 0;
         margin: 0;
     }
 
-    /* Header */
     header {
         min-height: 50px !important;
         padding: 5px 2% !important;
@@ -1312,13 +1310,13 @@ html, body {
         justify-content: center;
     }
 
-    /* Footer */
+ 
     footer {
         padding: 10px 2% !important;
         min-height: auto !important;
     }
 
-    /* Logos */
+
     .logos, .footer-logos {
         display: flex !important;
         justify-content: center !important;
@@ -1329,7 +1327,7 @@ html, body {
         height: auto !important;
     }
 
-    /* Shapes / liquid elements */
+
     .liquid-shape {
         filter: blur(4px);
     }
@@ -1338,7 +1336,7 @@ html, body {
         height: 80px !important;
     }
 
-    /* Cards */
+
     .card {
         width: 90% !important;
         max-width: 320px !important;
@@ -1371,7 +1369,7 @@ html, body {
         margin: 0 auto !important;
     }
 
-    /* Buttons */
+
     .action-btn, .motd {
         font-size: 0.7rem !important;
         padding: 8px 12px !important;
@@ -1379,7 +1377,7 @@ html, body {
         margin: 15px auto !important;
     }
 
-    /* SVG / Blob text */
+
     svg {
         width: 85vw !important;
         max-width: 700px !important;
@@ -1393,14 +1391,13 @@ html, body {
         text-align: center;
     }
 
-    /* Media / Flex adjustments */
     .media-section, .text-and-image {
         flex-direction: column !important;
         gap: 10px !important;
         align-items: center;
     }
 
-    /* Fonts */
+
     h1, h2, h3, h4, h5, h6, p, li {
         font-size: 0.7em !important;
         line-height: 1.1em !important;
@@ -1408,13 +1405,12 @@ html, body {
     .media h3 { font-size: 18px !important; }
     .text h2 { font-size: 28px !important; }
 
-    /* Gallery */
+
     .gallery-item { width: 180px !important; height: 250px !important; }
 
-    /* Footer logos smaller */
     .footer-logos img { width: 60px !important; }
 
-    /* Shadows */
+
     .shadow-dot { animation-duration: 10s !important; }
 }
 html, body {
@@ -1430,12 +1426,12 @@ html, body {
 
 
      .logos img {
-        width: 50px !important; /* smaller for tablets */
+        width: 50px !important; 
         height: auto !important;
         align-items: center;
     }
 
-    /* ================== BACK BUTTON ================== */
+
 .back-button {
     display: flex;
     justify-content: center;
@@ -1475,39 +1471,39 @@ html, body {
     position: relative;
 }
 
-/* ================== TABLET FIX (max-width: 768px) ================== */
+/* ================== TABLET ================= */
 @media (max-width: 768px) {
-    /* Back button */
+   
     .back-btn {
         width: 90px;
         padding: 8px 15px;
         font-size: 0.8rem;
     }
-    /* Footer text */
+   
     .watermark {
         font-size: 0.65rem;
         padding-top: 3px;
     }
 }
 
-/* ================== PHONE FIX (max-width: 480px) ================== */
+/* ================== PHONE ================== */
 @media (max-width: 480px) {
-    /* Back button */
+ 
     .back-btn {
         width: 80px;
         padding: 6px 12px;
         font-size: 0.7rem;
     }
-    /* Footer text */
+
     .watermark {
         font-size: 0.6rem;
         padding-top: 2px;
     }
 }
 
-/* ================== BODY / HTML OVERFLOW FIX ================== */
+/* ================== BODY  ================== */
 html, body {
-    overflow-x: hidden; /* prevent extra horizontal space */
+    overflow-x: hidden; 
     width: 100%;
     margin: 0;
     padding: 0;

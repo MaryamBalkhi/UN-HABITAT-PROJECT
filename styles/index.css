@@ -982,18 +982,18 @@ footer{
       /* ================== TABLET STYLES ================== */
 
       .watermark {
-    color: #ffffff; /* ensure visible on dark backgrounds */
+    color: #ffffff; 
     font-size: 0.7rem;
     text-align: center;
     padding-top: 5px;
     z-index: 10;
-    position: relative; /* above liquid shapes */
+    position: relative;
 }
 
 
 @media (max-width: 768px) {
 
-    /* Header */
+
     header {
         min-height: 60px !important;
         padding: 8px 3% !important;
@@ -1005,13 +1005,13 @@ footer{
         font-size: 0.85em !important;
     }
 
-    /* Footer */
+
     footer {
         padding: 10px 3% !important;
         min-height: auto !important;
     }
 
-    /* Shapes / liquid elements */
+
     .liquid-shape {
         filter: blur(5px);
     }
@@ -1020,7 +1020,7 @@ footer{
         height: 100px !important;
     }
 
-    /* Card adjustments */
+ 
     .card {
         width: 95% !important;
         max-width: 380px !important;
@@ -1058,19 +1058,19 @@ footer{
         pointer-events: auto;
     }
 
-    /* Buttons */
+
     .action-btn, .motd {
         font-size: 0.8rem !important;
         padding: 10px 15px !important;
     }
 
-    /* Blurb text */
+ 
     .web-blurb {
         font-size: 0.8em !important;
         padding: 5px !important;
     }
 
-    /* SVG/blob text */
+
     svg {
         width: 90vw !important;
         max-width: 800px !important;
@@ -1081,13 +1081,13 @@ footer{
         opacity: 0.8 !important;
     }
 
-    /* Media / Flex adjustments */
+
     .media-section, .text-and-image {
         flex-direction: column !important;
         gap: 15px !important;
     }
 
-    /* Fonts */
+ 
     h1, h2, h3, h4, h5, h6, p, li {
         font-size: 0.8em !important;
         line-height: 1.2em !important;
@@ -1095,7 +1095,6 @@ footer{
     .media h3 { font-size: 20px !important; }
     .text h2 { font-size: 35px !important; }
 
-    /* Gallery */
     .gallery {
         gap: 15px;
         padding: 20px 0;
@@ -1105,7 +1104,7 @@ footer{
     .gallery::-webkit-scrollbar { display: none; }
     .gallery-item { width: 200px !important; height: 280px !important; }
 
-    /* Shadows */
+
     .shadow-dot { animation-duration: 8s !important; }
 }
 
@@ -1124,7 +1123,7 @@ html, body {
 /* ================== PHONE STYLES ================== */
 @media (max-width: 480px) {
 
-    /* Header */
+  
     header {
         min-height: 50px !important;
         padding: 5px 2% !important;
@@ -1136,13 +1135,13 @@ html, body {
         justify-content: center;
     }
 
-    /* Footer */
+ 
     footer {
         padding: 10px 2% !important;
         min-height: auto !important;
     }
 
-    /* Shapes / liquid elements smaller */
+
     .liquid-shape {
         filter: blur(4px);
     }
@@ -1151,7 +1150,7 @@ html, body {
         height: 80px !important;
     }
 
-    /* Card adjustments */
+
     .card {
         width: 90% !important;
         max-width: 320px !important;
@@ -1180,19 +1179,19 @@ html, body {
         margin-top: 0;
     }
 
-    /* Buttons smaller */
+
     .action-btn, .motd {
         font-size: 0.7rem !important;
         padding: 8px 12px !important;
     }
 
-    /* Blurb text */
+
     .web-blurb {
         font-size: 0.7em !important;
         padding: 3px !important;
     }
 
-    /* SVG/blob text */
+
     svg {
         width: 85vw !important;
         max-width: 700px !important;
@@ -1203,13 +1202,13 @@ html, body {
         opacity: 0.75 !important;
     }
 
-    /* Media / Flex adjustments */
+
     .media-section, .text-and-image {
         flex-direction: column !important;
         gap: 10px !important;
     }
 
-    /* Fonts */
+
     h1, h2, h3, h4, h5, h6, p, li {
         font-size: 0.7em !important;
         line-height: 1.1em !important;
@@ -1217,13 +1216,13 @@ html, body {
     .media h3 { font-size: 18px !important; }
     .text h2 { font-size: 28px !important; }
 
-    /* Gallery smaller items */
+
     .gallery-item { width: 180px !important; height: 250px !important; }
 
-    /* Footer logos smaller */
+
     .footer-logos img { width: 60px !important; }
 
-    /* Shadows reduced complexity */
+
     .shadow-dot { animation-duration: 10s !important; }
 }
 html, body {

@@ -847,7 +847,7 @@ footer{
 /* ================== TABLET STYLES ================== */
 @media (max-width: 768px) {
 
-    /* Header */
+  
     header {
         min-height: 60px !important;
         padding: 8px 3% !important;
@@ -859,7 +859,7 @@ footer{
         font-size: 0.85em !important;
     }
 
-    /* Shapes / liquid elements */
+
     .liquid-shape {
         filter: blur(5px);
     }
@@ -868,7 +868,7 @@ footer{
         height: 100px !important;
     }
 
-    /* Card / Day images */
+
     .little-day-image {
         width: 70% !important;
         height: auto !important;
@@ -876,7 +876,7 @@ footer{
         pointer-events: auto;
     }
 
-    /* Buttons */
+
     .action-btn {
         width: 30% !important;
         padding: 10px 10px !important;
@@ -885,14 +885,14 @@ footer{
         cursor: pointer;
     }
 
-    /* Media / Flex adjustments */
+
     .text-and-image, .media-section {
         flex-direction: column !important;
         align-items: center;
         gap: 15px !important;
     }
 
-    /* Fonts */
+
     h1, h2, h3, h4, h5, h6, p, li {
         font-size: 0.8em !important;
         line-height: 1.2em !important;
@@ -910,7 +910,7 @@ footer{
     }
 
     
-    /* General page fixes */
+  
     html, body {
         width: 100% !important;
         margin: 0 !important;
@@ -923,7 +923,7 @@ footer{
         min-height: auto !important;
     }
 
-    /* Footer logos */
+
     .footer-logos img { width: 80px; }
     .web-blurb { padding: 5px; }
 }
@@ -933,7 +933,6 @@ footer{
 /* ================== PHONE STYLES ================== */
 @media (max-width: 480px) {
 
-    /* Header */
     header {
         min-height: 50px !important;
         padding: 5px 2% !important;
@@ -945,7 +944,7 @@ footer{
         font-size: 0.75em !important;
     }
 
-    /* Shapes / liquid elements smaller */
+
     .liquid-shape {
         filter: blur(4px);
     }
@@ -954,27 +953,26 @@ footer{
         height: 80px !important;
     }
 
-    /* Card / Day images */
+
     .little-day-image {
         width: 60% !important;
         height: auto !important;
         margin-top: 0;
     }
 
-    /* Buttons smaller */
     .action-btn {
         width: 40% !important;
         padding: 8px 12px !important;
         font-size: 0.7rem !important;
     }
 
-    /* Media section stacking */
+
     .text-and-image, .media-section {
         flex-direction: column !important;
         gap: 10px !important;
     }
 
-    /* Fonts */
+
     h1, h2, h3, h4, h5, h6, p, li, .web-blurb {
         font-size: 0.7em !important;
         line-height: 1.1em !important;
@@ -993,6 +991,6 @@ footer{
       font-size: 60px;
     }
 
-    /* Footer logos smaller */
+
     .footer-logos img { width: 60px; }
 }
