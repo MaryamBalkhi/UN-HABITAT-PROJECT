@@ -202,190 +202,163 @@ This website highlights Afghanistan’s urban challenges and the actions needed 
 
 
 
-
 <script>
-    // Auto-scroll functionality
     const galleryContainer = document.querySelector('.gallery-container');
     const galleryElement = document.getElementById('gallery');
     const galleryItems = document.querySelectorAll('.gallery-item');
-    
-    let scrollInterval = setInterval(() => {
-        galleryElement.scrollBy({left: 3, behavior: 'auto'});
-        
 
-        if (galleryElement.scrollLeft >= (galleryElement.scrollWidth - galleryElement.clientWidth - 10)) {
-            galleryElement.scrollTo({left: 3, behavior: 'smooth'});
+    let scrollInterval;
+    let scrollSpeed = 3;
+
+    // Detect touch devices and adjust scroll speed
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    if (isTouchDevice) {
+        if (window.innerWidth <= 480) {
+            scrollSpeed = 6; // Small phones
+        } else if (window.innerWidth <= 1024) {
+            scrollSpeed = 5; // Tablets
+        } else {
+            scrollSpeed = 4; // Large touch devices
         }
-        
-        updateCarousel(); 
-    }, 30);
-    
-    
+    }
+
+    function startAutoScroll() {
+        if (scrollInterval) clearInterval(scrollInterval);
+        scrollInterval = setInterval(() => {
+            // Prevent running if no scroll possible
+            if (galleryElement.scrollWidth <= galleryElement.clientWidth) return;
+
+            galleryElement.scrollBy({ left: scrollSpeed, behavior: 'auto' });
+
+            if (galleryElement.scrollLeft + galleryElement.clientWidth >= galleryElement.scrollWidth - 1) {
+                galleryElement.scrollTo({ left: 0, behavior: 'smooth' });
+            }
+            updateCarousel();
+        }, 30);
+    }
+
+    function stopAutoScroll() {
+        if (scrollInterval) clearInterval(scrollInterval);
+    }
+
     function updateCarousel() {
         const containerRect = galleryContainer.getBoundingClientRect();
         const center = containerRect.width / 2;
-        
+
         galleryItems.forEach(item => {
             const rect = item.getBoundingClientRect();
             const itemCenter = rect.left + rect.width / 2 - containerRect.left;
             const distance = Math.abs(itemCenter - center);
             const maxDistance = containerRect.width / 2 + rect.width / 2;
-            
 
             const scale = Math.max(0.7, 1 - (distance / maxDistance) * 0.3);
-            
             const blur = (distance / maxDistance) * 1.5;
-            
-
             const angle = ((itemCenter - center) / maxDistance) * 20;
-            
+
             item.style.transform = `rotateY(${angle}deg) scale(${scale})`;
             item.style.filter = `blur(${blur}px)`;
             item.style.zIndex = Math.round(100 - (distance / 100));
         });
     }
-    
-  
+
+    // Start auto scroll initially
+    startAutoScroll();
     updateCarousel();
-    
-
     galleryElement.addEventListener('scroll', updateCarousel);
-    
 
+    // Hover pause/resume
     galleryItems.forEach(item => {
-        item.addEventListener('mouseenter', () => {
-            clearInterval(scrollInterval);
-        });
-        
+        item.addEventListener('mouseenter', () => stopAutoScroll());
         item.addEventListener('mouseleave', () => {
-
             if (!document.getElementById('card').classList.contains('active')) {
-                scrollInterval = setInterval(() => {
-                    galleryElement.scrollBy({left: 3, behavior: 'auto'});
-                    
-                    if (galleryElement.scrollLeft >= (galleryElement.scrollWidth - galleryElement.clientWidth - 10)) {
-                        galleryElement.scrollTo({left: 0, behavior: 'smooth'});
-                    }
-                    
-                    updateCarousel();
-                }, 30);
+                startAutoScroll();
             }
         });
 
-
-        
-        
-
+        // ✅ Keep card click logic working
         item.addEventListener('click', () => {
             const title = item.textContent;
-            
             document.getElementById('card-title').textContent = title;
-            
             document.getElementById('overlay').classList.add('active');
             document.getElementById('card').classList.add('active');
-            
-            clearInterval(scrollInterval);
+            stopAutoScroll();
         });
     });
-    
 
-    document.getElementById('close-btn').addEventListener('click', closeCard);
-    document.getElementById('overlay').addEventListener('click', closeCard);
-    
+    // Card closing
     function closeCard() {
         document.getElementById('overlay').classList.remove('active');
         document.getElementById('card').classList.remove('active');
-        
-
-        scrollInterval = setInterval(() => {
-            galleryElement.scrollBy({left: 3, behavior: 'auto'});
-            
-            if (galleryElement.scrollLeft >= (galleryElement.scrollWidth - galleryElement.clientWidth - 10)) {
-                galleryElement.scrollTo({left: 0, behavior: 'smooth'});
-            }
-            
-            updateCarousel();
-        }, 30);
+        startAutoScroll();
     }
-    
+    document.getElementById('close-btn').addEventListener('click', closeCard);
+    document.getElementById('overlay').addEventListener('click', closeCard);
 
+    // Keyboard
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             closeCard();
         } else if (e.key === ' ') {
-            clearInterval(scrollInterval);
+            stopAutoScroll();
         }
     });
-    
 
+    // Resize update
     window.addEventListener('resize', updateCarousel);
 
-    
+    // --- Drag handling ---
+    let isDragging = false, movedDuringDrag = false, dragStartX = 0, dragScrollStart = 0;
+    let isCardOpen = false, isHovering = false;
 
- // Optimized drag handling
-      gallery.style.cursor = 'grab';
-      
-      const handleDragStart = (e) => {
+    galleryElement.style.cursor = 'grab';
+
+    const handleDragStart = (e) => {
         isDragging = true;
         movedDuringDrag = false;
         dragStartX = e.clientX || e.touches[0].clientX;
-        dragScrollStart = gallery.scrollLeft;
-        gallery.style.cursor = 'grabbing';
+        dragScrollStart = galleryElement.scrollLeft;
+        galleryElement.style.cursor = 'grabbing';
         stopAutoScroll();
-      };
+    };
 
-          if (isTouchDevice) {
-        if (window.innerWidth <= 480) {
-            // Small phones
-            scrollSpeed = 6;
-        } else if (window.innerWidth <= 1024) {
-            // Tablets / iPads
-            scrollSpeed = 5;
-        } else {
-            // Large touch devices
-            scrollSpeed = 4;
-        }
-    }
-
-      const handleDragMove = (e) => {
+    const handleDragMove = (e) => {
         if (!isDragging) return;
         const clientX = e.clientX || (e.touches && e.touches[0].clientX);
         if (!clientX) return;
-        
+
         const dx = clientX - dragStartX;
         if (Math.abs(dx) > 5) movedDuringDrag = true;
-        gallery.scrollLeft = dragScrollStart - dx;
-      };
+        galleryElement.scrollLeft = dragScrollStart - dx;
+    };
 
-      const handleDragEnd = () => {
+    const handleDragEnd = () => {
         if (!isDragging) return;
         isDragging = false;
-        gallery.style.cursor = 'grab';
+        galleryElement.style.cursor = 'grab';
         if (!isCardOpen && !isHovering) {
-          setTimeout(startAutoScroll, 200);
+            setTimeout(startAutoScroll, 200);
         }
         setTimeout(() => { movedDuringDrag = false; }, 50);
-      };
+    };
 
-      // Mouse events
-      gallery.addEventListener('mousedown', handleDragStart);
-      window.addEventListener('mousemove', handleDragMove);
-      window.addEventListener('mouseup', handleDragEnd);
+    galleryElement.addEventListener('mousedown', handleDragStart);
+    window.addEventListener('mousemove', handleDragMove);
+    window.addEventListener('mouseup', handleDragEnd);
 
-      // Touch events
-      gallery.addEventListener('touchstart', handleDragStart, { passive: true });
-      gallery.addEventListener('touchmove', handleDragMove, { passive: true });
-      gallery.addEventListener('touchend', handleDragEnd, { passive: true });
+    galleryElement.addEventListener('touchstart', handleDragStart, { passive: true });
+    galleryElement.addEventListener('touchmove', handleDragMove, { passive: true });
+    galleryElement.addEventListener('touchend', handleDragEnd, { passive: true });
 
-      // Pause animations when tab is not visible
-      document.addEventListener('visibilitychange', () => {
+    // Visibility pause/resume
+    document.addEventListener('visibilitychange', () => {
         if (document.hidden) {
-          stopAutoScroll();
+            stopAutoScroll();
         } else if (!isCardOpen && !isHovering && !isDragging) {
-          startAutoScroll();
+            startAutoScroll();
         }
-      });
+    });
 </script>
+
 
 
 
