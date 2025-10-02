@@ -70,13 +70,14 @@
 
     <header>
         <div class="logos">
-        <a href="https://unhabitat.org/afghanistan"><img src="stuff/logos/UN-Habitat_logo_English_White.png" alt="UN-habitat-logo" style="width: 50px;"></a>
+        <a href="https://unhabitat.org/"><img src="stuff/logos/UN-Habitat_logo_English_White.png" alt="UN-habitat-logo" style="width: 50px;"></a>
         <a href="https://urbanoctober.unhabitat.org/"><img src="stuff/logos/habitat-day-event-logo.png" alt="habitiat-day-event-logo" style="width: 65px;"></a>
         </div>
 
         <nav>
             <ul>
-                <a href="https://unhabitat.org/afghanistan"><li>ABOUT US</li></a>
+              <a href="index.html"><li>HOME</li></a>  
+              <a href="https://unhabitat.org/afghanistan"><li>ABOUT US</li></a>
                 <a href="https://urbanoctober.unhabitat.org/"><li>URBAN OCTOBER</li></a>
             </ul>
         </nav>
@@ -333,6 +334,19 @@ This website highlights Afghanistan’s urban challenges and the actions needed 
         stopAutoScroll();
       };
 
+          if (isTouchDevice) {
+        if (window.innerWidth <= 480) {
+            // Small phones
+            scrollSpeed = 6;
+        } else if (window.innerWidth <= 1024) {
+            // Tablets / iPads
+            scrollSpeed = 5;
+        } else {
+            // Large touch devices
+            scrollSpeed = 4;
+        }
+    }
+
       const handleDragMove = (e) => {
         if (!isDragging) return;
         const clientX = e.clientX || (e.touches && e.touches[0].clientX);
@@ -468,7 +482,7 @@ fetch("cardContents.json")
 <!-- footer --> 
 <footer>
     <div class="footer-logos">
-              <a href="https://unhabitat.org/afghanistan"><img src="stuff/logos/UN-Habitat_logo_English_White.png"></a>
+              <a href="https://unhabitat.org/"><img src="stuff/logos/UN-Habitat_logo_English_White.png"></a>
         <a href="https://urbanoctober.unhabitat.org/"><img style="width: 110px;" src="stuff/logos/habitat-day-event-logo.png"></a>
         
     </div>

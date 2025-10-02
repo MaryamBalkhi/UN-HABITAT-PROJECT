@@ -321,6 +321,8 @@ li:hover::after{
 }
 
 
+
+
 /*toggle dark mode button design*/
 label {
   position: relative;
@@ -1039,6 +1041,10 @@ footer{
   contain: layout style paint;
         }
 
+        .footer-logos img{
+          width: 65px;
+        }
+
       
 
         /* Liquid elements*/
@@ -1272,12 +1278,15 @@ html, body {
         overflow-x: hidden;
     }
 
-     .logos img {
-        width: 50px !important; 
-        height: auto !important;
-        align-items: center;
+    .logos, .footer-logos {
+        display: flex !important;
+        justify-content: center !important;
+        gap: 15px !important;
     }
-
+    .logos img, .footer-logos img {
+        width: 60-80px !important; 
+        height: auto !important;
+    }
     
     .logos{
       align-items: center;
@@ -1320,13 +1329,12 @@ html, body {
     .logos, .footer-logos {
         display: flex !important;
         justify-content: center !important;
-        gap: 10px !important;
+        gap: 15px !important;
     }
     .logos img, .footer-logos img {
-        width: 60px !important;
+        width: 60-80px !important; 
         height: auto !important;
     }
-
 
     .liquid-shape {
         filter: blur(4px);
@@ -1418,17 +1426,14 @@ html, body {
         max-width: 100%;
         overflow-x: hidden;
     }
-
-    .logos{
-      align-items: center;
-      padding-left: 5px;
+    .logos, .footer-logos {
+        display: flex !important;
+        justify-content: center !important;
+        gap: 15px !important;
     }
-
-
-     .logos img {
-        width: 50px !important; 
+    .logos img, .footer-logos img {
+        width: 60-80px !important; 
         height: auto !important;
-        align-items: center;
     }
 
 
@@ -1511,3 +1516,14 @@ html, body {
 
 
 
+
+
+body.touch-device .action-btn,
+body.touch-device .motd {
+  transition: all 1s ease; 
+}
+
+body.touch-device .action-btn:active,
+body.touch-device .motd:active {
+  transition: all 8s ease; 
+}

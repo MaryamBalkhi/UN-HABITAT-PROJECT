@@ -955,6 +955,10 @@ footer{
             animation-duration: 24s;
         }
 
+        .footer-logos img{
+            width: 65px;
+        }
+
         
         @keyframes liquidMove {
             0% {
@@ -1059,9 +1063,15 @@ footer{
     }
 
 
-    .action-btn, .motd {
-        font-size: 0.8rem !important;
-        padding: 10px 15px !important;
+  .action-btn {
+        font-size: 0.7rem !important;
+        padding: 8px 12px !important;
+        width: 90px;
+    }
+
+    .motd {
+        font-size: 0.7rem !important;
+        padding: 8px 12px !important;
     }
 
  
@@ -1180,7 +1190,13 @@ html, body {
     }
 
 
-    .action-btn, .motd {
+    .action-btn {
+        font-size: 0.7rem !important;
+        padding: 8px 12px !important;
+        width: 90px;
+    }
+
+    .motd {
         font-size: 0.7rem !important;
         padding: 8px 12px !important;
     }
@@ -1235,3 +1251,17 @@ html, body {
         font-size: 0.6rem;
         padding-top: 2px;
     }
+
+
+
+
+
+body.touch-device .action-btn,
+body.touch-device .motd {
+  transition: all 1s ease; 
+}
+
+body.touch-device .action-btn:active,
+body.touch-device .motd:active {
+  transition: all 8s ease; 
+}
