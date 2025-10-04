@@ -203,30 +203,90 @@ This website highlights Afghanistan’s urban challenges and the actions needed 
  
 
 <script>
-    const galleryContainer = document.querySelector('.gallery-container');
-    const galleryElement = document.getElementById('gallery');
-    const galleryItems = document.querySelectorAll('.gallery-item');
+const galleryContainer = document.querySelector('.gallery-container');
+const galleryElement = document.getElementById('gallery');
+const galleryItems = document.querySelectorAll('.gallery-item');
 
-    let scrollInterval;
-    let scrollSpeed = 3;
+let scrollSpeed = 3;
+let lastTime = 0;
+let scrollAccumulator = 0;
+let rafId = null;
+let isCardOpen = false;
+let lastUpdateTime = 0;
+const updateInterval = 100; // Update carousel every 100ms to reduce load
 
-    // Detect touch devices and adjust scroll speed
-    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+// Detect touch devices
+const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+// Performance check for low-end devices
+const isLowPerformance = () => {
+    return isTouchDevice && (
+        window.innerWidth <= 480 || // Small screens
+        !window.matchMedia('(min-device-pixel-ratio: 1.5)').matches // Low pixel density
+    );
+};
+
+// Adjust scroll speed based on device
+function adjustScrollSpeed() {
     if (isTouchDevice) {
         if (window.innerWidth <= 480) {
-            scrollSpeed = 6; // Small phones
+            scrollSpeed = 1.5; // Small phones
         } else if (window.innerWidth <= 1024) {
-            scrollSpeed = 5; // Tablets
+            scrollSpeed = 1.2; // Tablets
         } else {
-            scrollSpeed = 4; // Large touch devices
+            scrollSpeed = 1; // Large touch devices
         }
+        if (isLowPerformance()) {
+            scrollSpeed *= 0.8; // Further reduce for low-performance devices
+        }
+    } else {
+        scrollSpeed = 3; // Desktop default
+    }
+}
+
+function startAutoScroll() {
+    if (rafId) cancelAnimationFrame(rafId);
+
+    function scrollStep(timestamp) {
+        if (!lastTime) lastTime = timestamp;
+        const deltaTime = (timestamp - lastTime) / 1000; // Time in seconds
+        lastTime = timestamp;
+
+        // Prevent scrolling if no scroll possible or card is open
+        if (galleryElement.scrollWidth <= galleryElement.clientWidth || isCardOpen) {
+            rafId = requestAnimationFrame(scrollStep);
+            return;
+        }
+
+        // Accumulate scroll distance
+        scrollAccumulator += scrollSpeed * (deltaTime * 60); // Normalize to 60 FPS
+        const scrollAmount = Math.floor(scrollAccumulator);
+        scrollAccumulator -= scrollAmount;
+
+        if (scrollAmount !== 0) {
+            galleryElement.scrollBy({ left: scrollAmount, behavior: 'auto' });
+        }
+
+        // Reset scroll when reaching the end
+        if (galleryElement.scrollLeft + galleryElement.clientWidth >= galleryElement.scrollWidth - 1) {
+            galleryElement.scrollTo({ left: 0, behavior: 'smooth' });
+            scrollAccumulator = 0;
+        }
+
+        // Update carousel only at intervals to reduce load
+        if (timestamp - lastUpdateTime >= updateInterval) {
+            updateCarousel();
+            lastUpdateTime = timestamp;
+        }
+
+        rafId = requestAnimationFrame(scrollStep);
     }
 
-    function startAutoScroll() {
-        if (scrollInterval) clearInterval(scrollInterval);
-        scrollInterval = setInterval(() => {
-            // Prevent running if no scroll possible
-            if (galleryElement.scrollWidth <= galleryElement.clientWidth) return;
+    // Fallback for low-performance devices
+    if (isLowPerformance()) {
+        if (rafId) cancelAnimationFrame(rafId);
+        rafId = setInterval(() => {
+            if (galleryElement.scrollWidth <= galleryElement.clientWidth || isCardOpen) return;
 
             galleryElement.scrollBy({ left: scrollSpeed, behavior: 'auto' });
 
@@ -234,129 +294,158 @@ This website highlights Afghanistan’s urban challenges and the actions needed 
                 galleryElement.scrollTo({ left: 0, behavior: 'smooth' });
             }
             updateCarousel();
-        }, 30);
+        }, 50); // Slower interval for low-performance devices
+    } else {
+        adjustScrollSpeed();
+        lastTime = 0;
+        scrollAccumulator = 0;
+        lastUpdateTime = 0;
+        if (!isCardOpen) {
+            rafId = requestAnimationFrame(scrollStep);
+        }
     }
+}
 
-    function stopAutoScroll() {
-        if (scrollInterval) clearInterval(scrollInterval);
+function stopAutoScroll() {
+    if (rafId) {
+        if (isLowPerformance()) {
+            clearInterval(rafId);
+        } else {
+            cancelAnimationFrame(rafId);
+        }
+        rafId = null;
     }
+    lastTime = 0;
+    scrollAccumulator = 0;
+    lastUpdateTime = 0;
+}
 
-    function updateCarousel() {
-        const containerRect = galleryContainer.getBoundingClientRect();
-        const center = containerRect.width / 2;
+function updateCarousel() {
+    const containerRect = galleryContainer.getBoundingClientRect();
+    const center = containerRect.width / 2;
 
-        galleryItems.forEach(item => {
-            const rect = item.getBoundingClientRect();
-            const itemCenter = rect.left + rect.width / 2 - containerRect.left;
-            const distance = Math.abs(itemCenter - center);
-            const maxDistance = containerRect.width / 2 + rect.width / 2;
-
-            const scale = Math.max(0.7, 1 - (distance / maxDistance) * 0.3);
-            const blur = (distance / maxDistance) * 1.5;
-            const angle = ((itemCenter - center) / maxDistance) * 20;
-
-            item.style.transform = `rotateY(${angle}deg) scale(${scale})`;
-            item.style.filter = `blur(${blur}px)`;
-            item.style.zIndex = Math.round(100 - (distance / 100));
-        });
-    }
-
-    // Start auto scroll initially
-    startAutoScroll();
-    updateCarousel();
-    galleryElement.addEventListener('scroll', updateCarousel);
-
-    // Hover pause/resume
     galleryItems.forEach(item => {
-        item.addEventListener('mouseenter', () => stopAutoScroll());
-        item.addEventListener('mouseleave', () => {
-            if (!document.getElementById('card').classList.contains('active')) {
-                startAutoScroll();
-            }
-        });
+        const rect = item.getBoundingClientRect();
+        const itemCenter = rect.left + rect.width / 2 - containerRect.left;
+        const distance = Math.abs(itemCenter - center);
+        const maxDistance = containerRect.width / 2 + rect.width / 2;
 
-        // ✅ Keep card click logic working
-        item.addEventListener('click', () => {
-            const title = item.textContent;
-            document.getElementById('card-title').textContent = title;
-            document.getElementById('overlay').classList.add('active');
-            document.getElementById('card').classList.add('active');
-            stopAutoScroll();
-        });
+        const scale = Math.max(0.7, 1 - (distance / maxDistance) * 0.3);
+        const blur = (distance / maxDistance) * 1.5;
+        const angle = ((itemCenter - center) / maxDistance) * 20;
+
+        item.style.transform = `rotateY(${angle}deg) scale(${scale})`;
+        item.style.filter = `blur(${blur}px)`;
+        item.style.zIndex = Math.round(100 - (distance / 100));
     });
+}
 
-    // Card closing
-    function closeCard() {
-        document.getElementById('overlay').classList.remove('active');
-        document.getElementById('card').classList.remove('active');
-        startAutoScroll();
-    }
-    document.getElementById('close-btn').addEventListener('click', closeCard);
-    document.getElementById('overlay').addEventListener('click', closeCard);
+// Initialize
+adjustScrollSpeed();
+startAutoScroll();
+updateCarousel();
+galleryElement.addEventListener('scroll', updateCarousel);
 
-    // Keyboard
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            closeCard();
-        } else if (e.key === ' ') {
-            stopAutoScroll();
-        }
-    });
-
-    // Resize update
-    window.addEventListener('resize', updateCarousel);
-
-    // --- Drag handling ---
-    let isDragging = false, movedDuringDrag = false, dragStartX = 0, dragScrollStart = 0;
-    let isCardOpen = false, isHovering = false;
-
-    galleryElement.style.cursor = 'grab';
-
-    const handleDragStart = (e) => {
-        isDragging = true;
-        movedDuringDrag = false;
-        dragStartX = e.clientX || e.touches[0].clientX;
-        dragScrollStart = galleryElement.scrollLeft;
-        galleryElement.style.cursor = 'grabbing';
-        stopAutoScroll();
-    };
-
-    const handleDragMove = (e) => {
-        if (!isDragging) return;
-        const clientX = e.clientX || (e.touches && e.touches[0].clientX);
-        if (!clientX) return;
-
-        const dx = clientX - dragStartX;
-        if (Math.abs(dx) > 5) movedDuringDrag = true;
-        galleryElement.scrollLeft = dragScrollStart - dx;
-    };
-
-    const handleDragEnd = () => {
-        if (!isDragging) return;
-        isDragging = false;
-        galleryElement.style.cursor = 'grab';
-        if (!isCardOpen && !isHovering) {
-            setTimeout(startAutoScroll, 200);
-        }
-        setTimeout(() => { movedDuringDrag = false; }, 50);
-    };
-
-    galleryElement.addEventListener('mousedown', handleDragStart);
-    window.addEventListener('mousemove', handleDragMove);
-    window.addEventListener('mouseup', handleDragEnd);
-
-    galleryElement.addEventListener('touchstart', handleDragStart, { passive: true });
-    galleryElement.addEventListener('touchmove', handleDragMove, { passive: true });
-    galleryElement.addEventListener('touchend', handleDragEnd, { passive: true });
-
-    // Visibility pause/resume
-    document.addEventListener('visibilitychange', () => {
-        if (document.hidden) {
-            stopAutoScroll();
-        } else if (!isCardOpen && !isHovering && !isDragging) {
+// Hover pause/resume
+galleryItems.forEach(item => {
+    item.addEventListener('mouseenter', () => stopAutoScroll());
+    item.addEventListener('mouseleave', () => {
+        if (!isCardOpen) {
             startAutoScroll();
         }
     });
+
+    // Card click logic
+    item.addEventListener('click', () => {
+        const title = item.textContent;
+        document.getElementById('card-title').textContent = title;
+        document.getElementById('overlay').classList.add('active');
+        document.getElementById('card').classList.add('active');
+        isCardOpen = true;
+        stopAutoScroll();
+    });
+});
+
+// Card closing
+function closeCard() {
+    document.getElementById('overlay').classList.remove('active');
+    document.getElementById('card').classList.remove('active');
+    isCardOpen = false;
+    startAutoScroll();
+}
+document.getElementById('close-btn').addEventListener('click', closeCard);
+document.getElementById('overlay').addEventListener('click', closeCard);
+
+// Keyboard
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeCard();
+    } else if (e.key === ' ') {
+        stopAutoScroll();
+    }
+});
+
+// Resize update
+window.addEventListener('resize', () => {
+    adjustScrollSpeed();
+    updateCarousel();
+    if (!isCardOpen && !isDragging && !isHovering) {
+        startAutoScroll();
+    }
+});
+
+// Drag handling
+let isDragging = false, movedDuringDrag = false, dragStartX = 0, dragScrollStart = 0;
+let isHovering = false;
+
+galleryElement.style.cursor = 'grab';
+
+const handleDragStart = (e) => {
+    e.preventDefault(); // Prevent default touch behavior
+    isDragging = true;
+    movedDuringDrag = false;
+    dragStartX = e.clientX || e.touches[0].clientX;
+    dragScrollStart = galleryElement.scrollLeft;
+    galleryElement.style.cursor = 'grabbing';
+    stopAutoScroll();
+};
+
+const handleDragMove = (e) => {
+    if (!isDragging) return;
+    const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+    if (!clientX) return;
+
+    const dx = clientX - dragStartX;
+    if (Math.abs(dx) > 5) movedDuringDrag = true;
+    galleryElement.scrollLeft = dragScrollStart - dx;
+};
+
+const handleDragEnd = () => {
+    if (!isDragging) return;
+    isDragging = false;
+    galleryElement.style.cursor = 'grab';
+    if (!isCardOpen && !isHovering) {
+        setTimeout(startAutoScroll, 200);
+    }
+    setTimeout(() => { movedDuringDrag = false; }, 50);
+};
+
+galleryElement.addEventListener('mousedown', handleDragStart);
+window.addEventListener('mousemove', handleDragMove);
+window.addEventListener('mouseup', handleDragEnd);
+
+galleryElement.addEventListener('touchstart', handleDragStart, { passive: false });
+galleryElement.addEventListener('touchmove', handleDragMove, { passive: false });
+galleryElement.addEventListener('touchend', handleDragEnd, { passive: true });
+
+// Visibility pause/resume
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+        stopAutoScroll();
+    } else if (!isCardOpen && !isHovering && !isDragging) {
+        startAutoScroll();
+    }
+});
 </script>
 
 
