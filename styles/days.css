@@ -757,6 +757,10 @@ footer{
             contain: layout style paint;
         }
 
+                .footer-logos img{
+          width: 65px;
+        }
+
       
 
         /* Liquid elements*/
@@ -868,6 +872,17 @@ footer{
         height: 100px !important;
     }
 
+            .logos, .footer-logos {
+        display: flex !important;
+        justify-content: center !important;
+        gap: 15px !important;
+    }
+    .logos img, .footer-logos img {
+        width: 60-80px !important; 
+        height: auto !important;
+    }
+
+
 
     .little-day-image {
         width: 70% !important;
@@ -951,6 +966,17 @@ footer{
     .shape1, .shape2, .shape3, .shape4, .shape5 {
         width: 80px !important;
         height: 80px !important;
+    }
+
+
+            .logos, .footer-logos {
+        display: flex !important;
+        justify-content: center !important;
+        gap: 15px !important;
+    }
+    .logos img, .footer-logos img {
+        width: 60-80px !important; 
+        height: auto !important;
     }
 
 
