@@ -207,117 +207,121 @@ const galleryContainer = document.querySelector('.gallery-container');
 const galleryElement = document.getElementById('gallery');
 const galleryItems = document.querySelectorAll('.gallery-item');
 
-let scrollSpeed = 3;
-let lastTime = 0;
-let scrollAccumulator = 0;
-let rafId = null;
-let isCardOpen = false;
-let lastUpdateTime = 0;
-const updateInterval = 100; // Update carousel every 100ms to reduce load
+let state = {
+    scrollSpeed: 3,
+    lastTime: 0,
+    scrollAccumulator: 0,
+    rafId: null,
+    isCardOpen: false,
+    isDragging: false,
+    isHovering: false,
+    lastUpdateTime: 0,
+    dragStartX: 0,
+    dragScrollStart: 0,
+    movedDuringDrag: false
+};
 
-// Detect touch devices
+const updateInterval = 150; // Increased to reduce load on mobile
 const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
 // Performance check for low-end devices
 const isLowPerformance = () => {
     return isTouchDevice && (
-        window.innerWidth <= 480 || // Small screens
-        !window.matchMedia('(min-device-pixel-ratio: 1.5)').matches // Low pixel density
+        window.innerWidth <= 480 || 
+        !window.matchMedia('(min-device-pixel-ratio: 1.5)').matches
     );
 };
+
+// Throttle utility to limit function calls
+function throttle(fn, wait) {
+    let lastCall = 0;
+    return function (...args) {
+        const now = performance.now();
+        if (now - lastCall >= wait) {
+            lastCall = now;
+            fn(...args);
+        }
+    };
+}
 
 // Adjust scroll speed based on device
 function adjustScrollSpeed() {
     if (isTouchDevice) {
         if (window.innerWidth <= 480) {
-            scrollSpeed = 1.5; // Small phones
+            state.scrollSpeed = 1; // Slower for small phones
         } else if (window.innerWidth <= 1024) {
-            scrollSpeed = 1.2; // Tablets
+            state.scrollSpeed = 1.2; // Tablets
         } else {
-            scrollSpeed = 1; // Large touch devices
+            state.scrollSpeed = 1.5; // Large touch devices
         }
         if (isLowPerformance()) {
-            scrollSpeed *= 0.8; // Further reduce for low-performance devices
+            state.scrollSpeed *= 0.7; // Further reduce for low-performance
         }
     } else {
-        scrollSpeed = 3; // Desktop default
+        state.scrollSpeed = 2; // Desktop
     }
 }
 
+const throttledUpdateCarousel = throttle(updateCarousel, 150);
+
 function startAutoScroll() {
-    if (rafId) cancelAnimationFrame(rafId);
+    console.log('Starting autoscroll');
+    if (state.rafId) cancelAnimationFrame(state.rafId);
 
     function scrollStep(timestamp) {
-        if (!lastTime) lastTime = timestamp;
-        const deltaTime = (timestamp - lastTime) / 1000; // Time in seconds
-        lastTime = timestamp;
+        if (isLowPerformance() && timestamp - state.lastUpdateTime < 100) {
+            state.rafId = requestAnimationFrame(scrollStep);
+            return; // Skip frame on low-performance devices
+        }
 
-        // Prevent scrolling if no scroll possible or card is open
-        if (galleryElement.scrollWidth <= galleryElement.clientWidth || isCardOpen) {
-            rafId = requestAnimationFrame(scrollStep);
+        if (!state.lastTime) state.lastTime = timestamp;
+        const deltaTime = (timestamp - state.lastTime) / 1000;
+        state.lastTime = timestamp;
+
+        if (galleryElement.scrollWidth <= galleryElement.clientWidth || state.isCardOpen) {
+            state.rafId = requestAnimationFrame(scrollStep);
             return;
         }
 
-        // Accumulate scroll distance
-        scrollAccumulator += scrollSpeed * (deltaTime * 60); // Normalize to 60 FPS
-        const scrollAmount = Math.floor(scrollAccumulator);
-        scrollAccumulator -= scrollAmount;
+        state.scrollAccumulator += state.scrollSpeed * (deltaTime * 60);
+        const scrollAmount = Math.floor(state.scrollAccumulator);
+        state.scrollAccumulator -= scrollAmount;
 
         if (scrollAmount !== 0) {
             galleryElement.scrollBy({ left: scrollAmount, behavior: 'auto' });
         }
 
-        // Reset scroll when reaching the end
-        if (galleryElement.scrollLeft + galleryElement.clientWidth >= galleryElement.scrollWidth - 1) {
+        if (galleryElement.scrollLeft + galleryElement.clientWidth >= galleryElement.scrollWidth - 5) {
             galleryElement.scrollTo({ left: 0, behavior: 'smooth' });
-            scrollAccumulator = 0;
+            state.scrollAccumulator = 0;
         }
 
-        // Update carousel only at intervals to reduce load
-        if (timestamp - lastUpdateTime >= updateInterval) {
-            updateCarousel();
-            lastUpdateTime = timestamp;
+        if (timestamp - state.lastUpdateTime >= updateInterval) {
+            throttledUpdateCarousel();
+            state.lastUpdateTime = timestamp;
         }
 
-        rafId = requestAnimationFrame(scrollStep);
+        state.rafId = requestAnimationFrame(scrollStep);
     }
 
-    // Fallback for low-performance devices
-    if (isLowPerformance()) {
-        if (rafId) cancelAnimationFrame(rafId);
-        rafId = setInterval(() => {
-            if (galleryElement.scrollWidth <= galleryElement.clientWidth || isCardOpen) return;
-
-            galleryElement.scrollBy({ left: scrollSpeed, behavior: 'auto' });
-
-            if (galleryElement.scrollLeft + galleryElement.clientWidth >= galleryElement.scrollWidth - 1) {
-                galleryElement.scrollTo({ left: 0, behavior: 'smooth' });
-            }
-            updateCarousel();
-        }, 50); // Slower interval for low-performance devices
-    } else {
+    if (!state.isCardOpen && !state.isDragging && !state.isHovering) {
         adjustScrollSpeed();
-        lastTime = 0;
-        scrollAccumulator = 0;
-        lastUpdateTime = 0;
-        if (!isCardOpen) {
-            rafId = requestAnimationFrame(scrollStep);
-        }
+        state.lastTime = 0;
+        state.scrollAccumulator = 0;
+        state.lastUpdateTime = 0;
+        state.rafId = requestAnimationFrame(scrollStep);
     }
 }
 
 function stopAutoScroll() {
-    if (rafId) {
-        if (isLowPerformance()) {
-            clearInterval(rafId);
-        } else {
-            cancelAnimationFrame(rafId);
-        }
-        rafId = null;
+    console.log('Stopping autoscroll');
+    if (state.rafId) {
+        cancelAnimationFrame(state.rafId);
+        state.rafId = null;
     }
-    lastTime = 0;
-    scrollAccumulator = 0;
-    lastUpdateTime = 0;
+    state.lastTime = 0;
+    state.scrollAccumulator = 0;
+    state.lastUpdateTime = 0;
 }
 
 function updateCarousel() {
@@ -331,7 +335,7 @@ function updateCarousel() {
         const maxDistance = containerRect.width / 2 + rect.width / 2;
 
         const scale = Math.max(0.7, 1 - (distance / maxDistance) * 0.3);
-        const blur = (distance / maxDistance) * 1.5;
+        const blur = isTouchDevice ? 0 : (distance / maxDistance) * 1.5; // Disable blur on mobile
         const angle = ((itemCenter - center) / maxDistance) * 20;
 
         item.style.transform = `rotateY(${angle}deg) scale(${scale})`;
@@ -344,13 +348,17 @@ function updateCarousel() {
 adjustScrollSpeed();
 startAutoScroll();
 updateCarousel();
-galleryElement.addEventListener('scroll', updateCarousel);
+galleryElement.addEventListener('scroll', throttledUpdateCarousel);
 
 // Hover pause/resume
 galleryItems.forEach(item => {
-    item.addEventListener('mouseenter', () => stopAutoScroll());
+    item.addEventListener('mouseenter', () => {
+        state.isHovering = true;
+        stopAutoScroll();
+    });
     item.addEventListener('mouseleave', () => {
-        if (!isCardOpen) {
+        state.isHovering = false;
+        if (!state.isCardOpen) {
             startAutoScroll();
         }
     });
@@ -361,7 +369,7 @@ galleryItems.forEach(item => {
         document.getElementById('card-title').textContent = title;
         document.getElementById('overlay').classList.add('active');
         document.getElementById('card').classList.add('active');
-        isCardOpen = true;
+        state.isCardOpen = true;
         stopAutoScroll();
     });
 });
@@ -370,7 +378,7 @@ galleryItems.forEach(item => {
 function closeCard() {
     document.getElementById('overlay').classList.remove('active');
     document.getElementById('card').classList.remove('active');
-    isCardOpen = false;
+    state.isCardOpen = false;
     startAutoScroll();
 }
 document.getElementById('close-btn').addEventListener('click', closeCard);
@@ -389,45 +397,46 @@ document.addEventListener('keydown', (e) => {
 window.addEventListener('resize', () => {
     adjustScrollSpeed();
     updateCarousel();
-    if (!isCardOpen && !isDragging && !isHovering) {
+    if (!state.isCardOpen && !state.isDragging && !state.isHovering) {
         startAutoScroll();
     }
 });
 
 // Drag handling
-let isDragging = false, movedDuringDrag = false, dragStartX = 0, dragScrollStart = 0;
-let isHovering = false;
-
 galleryElement.style.cursor = 'grab';
 
 const handleDragStart = (e) => {
-    e.preventDefault(); // Prevent default touch behavior
-    isDragging = true;
-    movedDuringDrag = false;
-    dragStartX = e.clientX || e.touches[0].clientX;
-    dragScrollStart = galleryElement.scrollLeft;
+    e.preventDefault();
+    state.isDragging = true;
+    state.movedDuringDrag = false;
+    state.dragStartX = e.clientX || e.touches[0].clientX;
+    state.dragScrollStart = galleryElement.scrollLeft;
     galleryElement.style.cursor = 'grabbing';
     stopAutoScroll();
 };
 
 const handleDragMove = (e) => {
-    if (!isDragging) return;
+    if (!state.isDragging) return;
     const clientX = e.clientX || (e.touches && e.touches[0].clientX);
     if (!clientX) return;
 
-    const dx = clientX - dragStartX;
-    if (Math.abs(dx) > 5) movedDuringDrag = true;
-    galleryElement.scrollLeft = dragScrollStart - dx;
+    const dx = clientX - state.dragStartX;
+    if (Math.abs(dx) > 5) state.movedDuringDrag = true;
+    galleryElement.scrollLeft = state.dragScrollStart - dx;
 };
 
 const handleDragEnd = () => {
-    if (!isDragging) return;
-    isDragging = false;
+    if (!state.isDragging) return;
+    state.isDragging = false;
     galleryElement.style.cursor = 'grab';
-    if (!isCardOpen && !isHovering) {
-        setTimeout(startAutoScroll, 200);
+    if (!state.isCardOpen && !state.isHovering) {
+        setTimeout(() => {
+            if (!state.isDragging && !state.movedDuringDrag) {
+                startAutoScroll();
+            }
+        }, 300); // Increased delay to avoid conflicts
     }
-    setTimeout(() => { movedDuringDrag = false; }, 50);
+    setTimeout(() => { state.movedDuringDrag = false; }, 100);
 };
 
 galleryElement.addEventListener('mousedown', handleDragStart);
@@ -442,7 +451,7 @@ galleryElement.addEventListener('touchend', handleDragEnd, { passive: true });
 document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
         stopAutoScroll();
-    } else if (!isCardOpen && !isHovering && !isDragging) {
+    } else if (!state.isCardOpen && !state.isHovering && !state.isDragging) {
         startAutoScroll();
     }
 });
