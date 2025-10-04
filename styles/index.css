@@ -982,11 +982,9 @@ footer{
                 border-radius: 42% 58% 60% 40% / 45% 45% 55% 55%;
             }
         }
-
-      /* ================== TABLET STYLES ================== */
-
-      .watermark {
-    color: #ffffff; 
+/* ================== TABLET STYLES ================== */
+.watermark {
+    color: #ffffff;
     font-size: 0.7rem;
     text-align: center;
     padding-top: 5px;
@@ -994,10 +992,7 @@ footer{
     position: relative;
 }
 
-
 @media (max-width: 768px) {
-
-
     header {
         min-height: 60px !important;
         padding: 8px 3% !important;
@@ -1009,33 +1004,29 @@ footer{
         font-size: 0.85em !important;
     }
 
-
     footer {
         padding: 10px 3% !important;
         min-height: auto !important;
     }
 
-        .logos, .footer-logos {
+    .logos, .footer-logos {
         display: flex !important;
         justify-content: center !important;
         gap: 15px !important;
     }
     .logos img, .footer-logos img {
-        width: 60-80px !important; 
+        width: 60px !important;
         height: auto !important;
     }
 
-
-
     .liquid-shape {
-        filter: blur(5px);
+        filter: blur(3px); /* Reduced blur for performance */
     }
     .shape1, .shape2, .shape3, .shape4, .shape5 {
         width: 100px !important;
         height: 100px !important;
     }
 
- 
     .card {
         width: 95% !important;
         max-width: 380px !important;
@@ -1073,8 +1064,7 @@ footer{
         pointer-events: auto;
     }
 
-
-  .action-btn {
+    .action-btn {
         font-size: 0.7rem !important;
         padding: 8px 12px !important;
         width: 90px;
@@ -1085,12 +1075,10 @@ footer{
         padding: 8px 12px !important;
     }
 
- 
     .web-blurb {
         font-size: 0.8em !important;
         padding: 5px !important;
     }
-
 
     svg {
         width: 90vw !important;
@@ -1098,17 +1086,15 @@ footer{
         min-width: 400px !important;
     }
     .blobtext {
-        filter: blur(60px) !important;
+        filter: blur(40px) !important; /* Reduced blur for performance */
         opacity: 0.8 !important;
     }
-
 
     .media-section, .text-and-image {
         flex-direction: column !important;
         gap: 15px !important;
     }
 
- 
     h1, h2, h3, h4, h5, h6, p, li {
         font-size: 0.8em !important;
         line-height: 1.2em !important;
@@ -1121,30 +1107,25 @@ footer{
         padding: 20px 0;
         overflow-x: auto;
         scrollbar-width: none;
+        touch-action: pan-y; /* Prevent vertical scroll interference */
+        overscroll-behavior-x: none; /* Prevent bounce-back */
+        will-change: scroll-position; /* Optimize scrolling */
     }
     .gallery::-webkit-scrollbar { display: none; }
-    .gallery-item { width: 200px !important; height: 280px !important; }
+    .gallery-item {
+        width: 200px !important;
+        height: 280px !important;
+        will-change: transform; /* Optimize transforms */
+    }
 
-
-    .shadow-dot { animation-duration: 8s !important; }
+    .shadow-dot {
+        animation-duration: 8s !important;
+        animation-play-state: paused; /* Pause during scroll on mobile */
+    }
 }
-
-html, body {
-        width: 100%;
-        max-width: 100%;
-        overflow-x: hidden;
-    }
-
-      .watermark {
-        font-size: 0.65rem;
-        padding-top: 3px;
-    }
-
 
 /* ================== PHONE STYLES ================== */
 @media (max-width: 480px) {
-
-  
     header {
         min-height: 50px !important;
         padding: 5px 2% !important;
@@ -1156,32 +1137,28 @@ html, body {
         justify-content: center;
     }
 
- 
     footer {
         padding: 10px 2% !important;
         min-height: auto !important;
     }
 
-        .logos, .footer-logos {
+    .logos, .footer-logos {
         display: flex !important;
         justify-content: center !important;
         gap: 15px !important;
     }
     .logos img, .footer-logos img {
-        width: 60-80px !important; 
+        width: 60px !important;
         height: auto !important;
     }
 
-
-
     .liquid-shape {
-        filter: blur(4px);
+        filter: blur(2px); /* Further reduced blur */
     }
     .shape1, .shape2, .shape3, .shape4, .shape5 {
         width: 80px !important;
         height: 80px !important;
     }
-
 
     .card {
         width: 90% !important;
@@ -1211,7 +1188,6 @@ html, body {
         margin-top: 0;
     }
 
-
     .action-btn {
         font-size: 0.7rem !important;
         padding: 8px 12px !important;
@@ -1223,12 +1199,10 @@ html, body {
         padding: 8px 12px !important;
     }
 
-
     .web-blurb {
         font-size: 0.7em !important;
         padding: 3px !important;
     }
-
 
     svg {
         width: 85vw !important;
@@ -1236,16 +1210,14 @@ html, body {
         min-width: 300px !important;
     }
     .blobtext {
-        filter: blur(50px) !important;
+        filter: blur(30px) !important; /* Further reduced blur */
         opacity: 0.75 !important;
     }
-
 
     .media-section, .text-and-image {
         flex-direction: column !important;
         gap: 10px !important;
     }
-
 
     h1, h2, h3, h4, h5, h6, p, li {
         font-size: 0.7em !important;
@@ -1254,37 +1226,38 @@ html, body {
     .media h3 { font-size: 18px !important; }
     .text h2 { font-size: 28px !important; }
 
-
-    .gallery-item { width: 180px !important; height: 250px !important; }
-
+    .gallery-item {
+        width: 180px !important;
+        height: 250px !important;
+        will-change: transform;
+    }
 
     .footer-logos img { width: 60px !important; }
 
-
-    .shadow-dot { animation-duration: 10s !important; }
+    .shadow-dot {
+        animation-duration: 10s !important;
+        animation-play-state: paused; /* Pause during scroll on mobile */
+    }
 }
+
 html, body {
-        width: 100%;
-        max-width: 100%;
-        overflow-x: hidden;
-    }
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
 
-        .watermark {
-        font-size: 0.6rem;
-        padding-top: 2px;
-    }
-
-
-
-
+.watermark {
+    font-size: 0.6rem;
+    padding-top: 2px;
+}
 
 body.touch-device .action-btn,
 body.touch-device .motd {
-  transition: all 1s ease; 
+    transition: all 0.3s ease; /* Reduced transition duration for performance */
 }
 
 body.touch-device .action-btn:active,
 body.touch-device .motd:active {
-  transition: all 8s ease; 
+    transition: all 0.3s ease; /* Reduced transition duration */
 }
- 
+
