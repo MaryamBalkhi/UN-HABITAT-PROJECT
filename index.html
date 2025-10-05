@@ -262,20 +262,7 @@ function adjustScrollSpeed() {
     }
 }
 
-if (!isTouchDevice) {
-    galleryItems.forEach(item => {
-        item.addEventListener('mouseenter', () => {
-            state.isHovering = true;
-            stopAutoScroll();
-        });
-        item.addEventListener('mouseleave', () => {
-            state.isHovering = false;
-            if (!state.isCardOpen) {
-                startAutoScroll();
-            }
-        });
-    });
-}
+
 const throttledUpdateCarousel = throttle(updateCarousel, 150);
 
 function startAutoScroll() {
@@ -527,6 +514,28 @@ fetch("cardContents.json")
 </script>
 
 
+<script>
+  // Disable hover styles on touch devices
+  (function() {
+    // Check if device supports touch
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+    if (isTouchDevice) {
+      try {
+        // Add a class to body so we can control hover behavior with CSS
+        document.body.classList.add('no-hover');
+
+        // Optionally remove all hover event listeners if you have JS-driven hovers
+        document.querySelectorAll('*').forEach(el => {
+          el.onmouseover = null;
+          el.onmouseenter = null;
+        });
+      } catch (e) {
+        console.error('Error disabling hover effects:', e);
+      }
+    }
+  })();
+</script>
 
 
 

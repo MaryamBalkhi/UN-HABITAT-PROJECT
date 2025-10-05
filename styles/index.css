@@ -1261,11 +1261,3 @@ body.touch-device .motd:active {
     transition: all 0.3s ease; /* Reduced transition duration */
 }
 
-@media (min-width: 1025px) {
-    .gallery-item:hover {
-        transform: scale(1.08) !important;
-        filter: none !important;
-        box-shadow: 0 0 25px rgba(0, 178, 227, 0.8);
-        z-index: 10 !important;
-    }
-}
