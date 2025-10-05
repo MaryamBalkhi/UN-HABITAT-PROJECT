@@ -129,8 +129,8 @@ This website highlights Afghanistan’s urban challenges and the actions needed 
 </script>
 
 
-  <!--the pics with card-->
-      <div class="gallery-container">
+<!--the pics with card-->
+<div class="gallery-container">
     <div class="fade-left"></div>
     <div class="fade-right"></div>
     <div class="gallery" id="gallery">
@@ -157,14 +157,14 @@ This website highlights Afghanistan’s urban challenges and the actions needed 
         <div class="gallery-item"  data-card="20"><img src="stuff/horizental-pics/H-Day-20 Womens-Empowerment.jpg" alt="image-Day-20-Womens-Empowerment" style="width:100%; height:100%; object-fit:cover"></div>
         <div class="gallery-item"  data-card="21"><img src="stuff/horizental-pics/H-Day-21-Waste-Management.jpg" alt="image-Day-21-Waste-Management" style="width:100%; height:100%; object-fit:cover"></div>
         <div class="gallery-item" data-card="22"><img src="stuff/horizental-pics/H-Day-22-Safe-Public-Space-for-Women-and-Girls.jpg" alt="image-22-Day-22-Safe-Public-Space-for-Women-and-Girls" style="width:100%; height:100%; object-fit:cover"></div>
-        <div class="gallery-item" data-card="23"><img src="stuff/horizental-pics/H-Day-23-Housing-Land-and-Property-(HLP)-Rights.jpg" alt="image-Day-23-Housing-Land-and-Property-(HLP)-Rights" style="width:100%; height:100%; object-fit:cover"></div>
-        <div class="gallery-item" data-card="24"><img src="stuff/horizental-pics/H-Day-20 Womens-Empowerment.jpg" alt="image-24-Inclusive-Urban-Planning" style="width:100%; height:100%; object-fit:cover"></div>
-        <div class="gallery-item" data-card="25"><img src="stuff/horizental-pics/H-Day-25-World-Urban-Forum.jpg" alt="image-" style="width:100%; height:100%; object-fit:contain; background-color: white;"></div>
+        <div class="gallery-item"  data-card="23"><img src="stuff/horizental-pics/H-Day-23-Housing-Land-and-Property-(HLP)-Rights.jpg" alt="image-Day-23-Housing-Land-and-Property-(HLP)-Rights" style="width:100%; height:100%; object-fit:cover"></div>
+        <div class="gallery-item"  data-card="24"><img src="stuff/horizental-pics/H-Day-20 Womens-Empowerment.jpg" alt="image-24-Inclusive-Urban-Planning" style="width:100%; height:100%; object-fit:cover"></div>
+        <div class="gallery-item"  data-card="25"><img src="stuff/horizental-pics/H-Day-25-World-Urban-Forum.jpg" alt="image-" style="width:100%; height:100%; object-fit:contain; background-color: white;"></div>
         <div class="gallery-item" data-card="26"><img src="stuff/horizental-pics/H-Day-26-Inequality-and-Exclusion.jpg" alt="image-Day 25 World Urban Forum" style="width:100%; height:100%; object-fit:cover"></div>
-        <div class="gallery-item" data-card="27"><img src="stuff/horizental-pics/H-Day-27-Cultural-Heritage-Protection.jpg" alt="image-Day-27-Cultural-Heritage-Protection" style="width:100%; height:100%; object-fit:cover"></div>
-        <div class="gallery-item" data-card="28"><img src="stuff/horizental-pics/H-Day-28-Emergency-Shelter.jpg" alt="image-Day-28-Emergency-Shelter" style="width:100%; height:100%; object-fit:cover"></div>
-        <div class="gallery-item" data-card="29"><img src="stuff/horizental-pics/H-Day-29-Youth-Unemployment.jpg" alt="image-Day-29-Youth-Unemployment" style="width:100%; height:100%; object-fit:cover"></div>
-        <div class="gallery-item" data-card="30"><img src="stuff/horizental-pics/H-Day-30-Air-Pollution.jpg" alt="image-Day-30-Air-Pollution" style="width:100%; height:100%; object-fit:cover"></div>
+        <div class="gallery-item"  data-card="27"><img src="stuff/horizental-pics/H-Day-27-Cultural-Heritage-Protection.jpg" alt="image-Day-27-Cultural-Heritage-Protection" style="width:100%; height:100%; object-fit:cover"></div>
+        <div class="gallery-item"  data-card="28"><img src="stuff/horizental-pics/H-Day-28-Emergency-Shelter.jpg" alt="image-Day-28-Emergency-Shelter" style="width:100%; height:100%; object-fit:cover"></div>
+        <div class="gallery-item"  data-card="29"><img src="stuff/horizental-pics/H-Day-29-Youth-Unemployment.jpg" alt="image-Day-29-Youth-Unemployment" style="width:100%; height:100%; object-fit:cover"></div>
+        <div class="gallery-item"  data-card="30"><img src="stuff/horizental-pics/H-Day-30-Air-Pollution.jpg" alt="image-Day-30-Air-Pollution" style="width:100%; height:100%; object-fit:cover"></div>
         <div class="gallery-item" data-card="31"><img src="stuff/horizental-pics/H-Day-31-Urban-Energy_2.jpg" alt="image-Day-31-Urban-Energy" style="width:100%; height:100%; object-fit:cover"></div>
     </div>
 </div>
@@ -199,8 +199,6 @@ This website highlights Afghanistan’s urban challenges and the actions needed 
     <div class="blob blob3"></div>
 </div>
 
-
- 
 
 <script>
 const galleryContainer = document.querySelector('.gallery-container');
@@ -351,20 +349,24 @@ startAutoScroll();
 updateCarousel();
 galleryElement.addEventListener('scroll', throttledUpdateCarousel);
 
-// Hover pause/resume
-galleryItems.forEach(item => {
-    item.addEventListener('mouseenter', () => {
-        state.isHovering = true;
-        stopAutoScroll();
+// Hover pause/resume only for non-touch devices
+if (!isTouchDevice) {
+    galleryItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            state.isHovering = true;
+            stopAutoScroll();
+        });
+        item.addEventListener('mouseleave', () => {
+            state.isHovering = false;
+            if (!state.isCardOpen) {
+                startAutoScroll();
+            }
+        });
     });
-    item.addEventListener('mouseleave', () => {
-        state.isHovering = false;
-        if (!state.isCardOpen) {
-            startAutoScroll();
-        }
-    });
+}
 
-    // Card click logic
+// Card click logic (works for both click and touch)
+galleryItems.forEach(item => {
     item.addEventListener('click', () => {
         const title = item.textContent;
         document.getElementById('card-title').textContent = title;
@@ -457,10 +459,6 @@ document.addEventListener('visibilitychange', () => {
     }
 });
 </script>
-
-
-
-
 
 <!-- the conent of the card-->
 <script>

@@ -426,7 +426,6 @@ input {
 }
 
 
-
 /*the pics with cards*/
     .gallery-container {
         position: relative;
@@ -1260,5 +1259,3 @@ body.touch-device .action-btn:active,
 body.touch-device .motd:active {
     transition: all 0.3s ease; /* Reduced transition duration */
 }
-
- 
