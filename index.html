@@ -22,7 +22,7 @@
 
 
 </head>
-<body class="no-hover"> 
+<body>
   
 
 <div>
@@ -512,31 +512,7 @@ fetch("cardContents.json")
     });
   });
 </script>
-
-
-<script>
-  // Disable hover styles on touch devices
-  (function() {
-    // Check if device supports touch
-    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-
-    if (isTouchDevice) {
-      try {
-        // Add a class to body so we can control hover behavior with CSS
-        document.body.classList.add('no-hover');
-
-        // Optionally remove all hover event listeners if you have JS-driven hovers
-        document.querySelectorAll('*').forEach(el => {
-          el.onmouseover = null;
-          el.onmouseenter = null;
-        });
-      } catch (e) {
-        console.error('Error disabling hover effects:', e);
-      }
-    }
-  })();
-</script>
-
+ 
 
 
 <div class="the-button-link"><a href="message-of-today-page.html"><button class="motd">MESSAGE OF THE DAY</button></a></div> 

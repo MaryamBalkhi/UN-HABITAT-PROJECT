@@ -1122,14 +1122,6 @@ footer{
         animation-duration: 8s !important;
         animation-play-state: paused; /* Pause during scroll on mobile */
     }
-
-    
-/* Disable all hover effects when .no-hover is active */
-.no-hover *:hover {
-  pointer-events: none !important;
-  /* Optional: if you have color changes or transitions on hover, reset them */
-  transition: none !important;
-}
 }
 
 /* ================== PHONE STYLES ================== */
@@ -1144,14 +1136,6 @@ footer{
         font-size: 0.75em !important;
         justify-content: center;
     }
-
-    
-/* Disable all hover effects when .no-hover is active */
-.no-hover *:hover {
-  pointer-events: none !important;
-  /* Optional: if you have color changes or transitions on hover, reset them */
-  transition: none !important;
-}
 
     footer {
         padding: 10px 2% !important;
@@ -1277,3 +1261,4 @@ body.touch-device .motd:active {
     transition: all 0.3s ease; /* Reduced transition duration */
 }
 
+ 
