@@ -248,7 +248,7 @@ function throttle(fn, wait) {
 function adjustScrollSpeed() {
     if (isTouchDevice) {
         if (window.innerWidth <= 480) {
-            state.scrollSpeed = 1; // Slower for small phones
+            state.scrollSpeed = 1.2; // Slower for small phones
         } else if (window.innerWidth <= 1024) {
             state.scrollSpeed = 1.2; // Tablets
         } else {
@@ -262,6 +262,20 @@ function adjustScrollSpeed() {
     }
 }
 
+if (!isTouchDevice) {
+    galleryItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            state.isHovering = true;
+            stopAutoScroll();
+        });
+        item.addEventListener('mouseleave', () => {
+            state.isHovering = false;
+            if (!state.isCardOpen) {
+                startAutoScroll();
+            }
+        });
+    });
+}
 const throttledUpdateCarousel = throttle(updateCarousel, 150);
 
 function startAutoScroll() {
